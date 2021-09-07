@@ -16,6 +16,10 @@
             "metadata": {
               "description": "Password for the Virtual Machine."
             }
+        },
+        "includeLandingZone": {
+            "type": "bool",
+            "defaultValue": true
         }
     },
     "variables": {
@@ -33,9 +37,13 @@
         "dmsPrefix": "10.1.0.0/16",
         "dmsSubnetPrefix": "10.1.0.0/24",
         "dmsSubnetName": "DMS",
+        "baseUri": "https://cloudworkshop.blob.core.windows.net/line-of-business-application-migration/sept-2020",
         "customScriptFolder": "./sept-2020/",
         "customScriptUriScriptFileName": "BootstrapSmartHotelHost.ps1",
-        "customScriptUri": "https://cloudworkshop.blob.core.windows.net/line-of-business-application-migration/sept-2020/BootstrapSmartHotelHost.ps1"
+        "customScriptUri": "[concat(variables('baseUri'),'/BootstrapSmartHotelHost.ps1')]",
+        "landingZoneRG": "SmartHotelRG",
+        "landingZoneBase": "https://openhackpublic.blob.core.windows.net/lob-migration/landingZone",
+        "landingZoneUri": "[concat(variables('landingZoneBase'),'/SmartHotelLZ.json')]"
     },
     "resources": [
         {
@@ -327,6 +335,30 @@
                 "[resourceId('Microsoft.Network/virtualNetworks', variables('smarthotelVnetName'))]",
                 "[resourceId('Microsoft.Network/virtualNetworks', variables('dmsVnetName'))]"
             ]
+        },
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[resourceGroup().location]",
+            "name": "[variables('landingZoneRG')]",
+            "properties": {}
+        },
+        {
+            "condition": "[parameters('includeLandingZone')]",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "landingZoneDeployment",
+            "resourceGroup": "[variables('landingZoneRG')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', variables('landingZoneRG'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "templateLink": {
+                    "uri": "[variables('landingZoneUri')]",
+                    "contentVersion": "1.0.0.0"
+                }
+            }
         }
     ]
 }

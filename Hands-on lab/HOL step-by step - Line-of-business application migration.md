@@ -611,59 +611,7 @@ Prior to using the Azure Database Migration Service, the resource provider **Mic
 
 In this task you registered the **Microsoft.DataMigration** resource provider with your subscription. This enables this subscription to use the Azure Database Migration Service.
 
-### Task 2: Create an Azure SQL Database
-
-In this task you will create a new Azure SQL database to migrate the on-premises database to.
-
-> **Note**: This lab focuses on simplicity to teach the participant the technical tools required. In the , more consideration should go into the long-term plan prior to creating the first DB. For instance: Will this DB live in an Azure landing zone? Who will operate this environment post-migration? What policies are in place that the migration team should be aware of prior to migration? These landing zone and operating model related topics are covered in the Cloud Adoption Framework’s Ready methodology. You don’t need to deviate from the script, but be familiar with the four-step process in that methodology, so you can field those types of a questions if they come up in the lab.
-
-1. Open the Azure portal at https://portal.azure.com and log in using your subscription credentials if it's not still up.
-
-2. Expand the portal's left navigation by selecting **Show portal menu** in the top left then select **+ Create a resource**, then select **Databases**, then select **SQL Database**.
-
-    ![Azure portal screenshot showing the select path to create a SQL Database.](images/Exercise2/new-sql-db.png "New SQL Database")
-
-3. The **Create SQL Database** blade opens, showing the **Basics** tab. Complete the form as follows:
-
-    - Subscription: **Select your subscription**.
-  
-    - Resource group: (create new) **SmartHotelDBRG**
-  
-    - Database name: **smarthoteldb**
-  
-    - Server: Select **Create new** and fill in the New server blade as follows then select **OK**:
-  
-        - Server name: **smarthoteldb\[unique number\]**
-  
-        - Server admin login: **demouser**
-  
-        - Password: **demo!pass123**
-  
-        - Location: **IMPORTANT: For most users, select the same region you used when you started your lab - this makes migration faster. If you are using an Azure Pass subscription, choose a different region to stay within the Total Regional vCPU limit.**
-
-    > **Note**: You can verify the location by opening another browser tab, navigating to https://portal.azure.com and selecting Virtual Machines on the left navigation. Use the same region as the **SmartHotelHost** virtual machine.
-
-    - Use SQL elastic pool: **No**
-  
-    - Compute + storage: **Standard S0**
-
-    > **Note**: To select the **Standard S0** database tier, select **Configure database**, then **Looking for basic, standard, premium?**, select **Standard** and select **Apply**.
-
-    ![Screenshot from the Azure portal showing the Create SQL Database blade.](images/Exercise2/new-db.png "Create SQL Database")
-
-    ![Screenshot from the Azure portal showing the New server blade (when creating a SQL database).](images/Exercise2/new-db-server.png "Create Server for SQL Database")
-
-4. Select **Next: Networking >** to move to the **Networking** tab. Confirm that **No access** is selected.
-
-    > **Note**: We will configure private endpoints to access our database later in the lab.
-
-5. Select **Review + Create**, then select **Create** to create the database. Wait for the deployment to complete.
-
-#### Task summary <!-- omit in toc -->
-
-In this task you created an Azure SQL Database running on an Azure SQL Database Server.
-
-### Task 3: Create the Database Migration Service
+### Task 2: Create the Database Migration Service
 
 In this task you will create an Azure Database Migration Service resource. This resource is managed by the Microsoft.DataMigration resource provider which you registered in task 1.
 
@@ -817,13 +765,13 @@ In subsequent tasks, you will use this project to migrate both the database sche
 
 We'll start by creating the private endpoint that allows the DMS to access the database server.
 
-1. In the Azure portal, navigate to the **SmartHotelHostDBRG** resource group, and then to the database server.
+1. In the Azure portal, navigate to the **SmartHotelHostRG** resource group, and then to the database server.
 
 2. Select **Private endpoint connections** under **Security**, then **+ Private endpoint**.
 
 3. On the **Basics** tab that appears, enter the following configuration then select **Next: Resource**. 
 
-    - Resource group: **SmartHotelDBRG**
+    - Resource group: **SmartHotelRG**
   
     - Name: **SmartHotel-DB-for-DMS**
   
@@ -1005,7 +953,7 @@ The schema migration will be carried out using an offline data migration activit
 
 As a final step, we will remove the private endpoint that allows the DMS service access to the database, since this access is no longer required.
 
-8.  In the Azure portal, navigate to the **SmartHotelHostDBRG** resource group, and then to the database server. Under **Security**, select **Private endpoint connections**.
+8.  In the Azure portal, navigate to the **SmartHotelRG** resource group, and then to the database server. Under **Security**, select **Private endpoint connections**.
 
 9.  Select the **SmartHotel-DB-for-DMS** endpoint added earlier, and select **Remove**, followed by **Yes**.
 
@@ -1059,53 +1007,19 @@ In this task you will create a new Azure Storage Account that will be used by Az
 
 In this task you created a new Azure Storage Account that will be used by Azure Migrate: Server Migration.
 
-### Task 2: Create a Virtual Network
+### Task 2: Create a Private Endpoint
 
-In this task you will create a new virtual network that will be used by your migrated virtual machines when they are migrated to Azure. (Azure Migrate will only create the VMs, their network interfaces, and their disks; all other resources must be staged in advance.)
+In this task you will create an endpoint on the provided virtual network that will be used by the SQL Server resource.
 
 > **Note:** Azure provides several options for deploying the right network configuration. After the lab, if you’d like to better understand your networking options, see the [network decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/software-defined-network/), which builds on the Cloud Adoption Framework’s Azure landing zones. 
 
 You will also configure a private endpoint in this network to allow private, secure access to the SQL Database.
 
-1. In the Azure portal's left navigation, select **+ Create a resource**, then select **Networking**, followed by **Virtual network**.
+1. Navigate to the **SmartHotelRG** resource group, and then to the database server. Under **Security**, select **Private endpoint connections**, then select **+ Private endpoint**.
 
-    ![Screenshot of the Azure portal showing the create virtual network navigation.](images/Exercise3/create-vnet-1.png "New Virtual Network")
+2. On the **Basics** tab, enter the following configuration then select **Next: Resource**:
 
-2. In the **Create virtual network** blade, enter the following values:
-
-    - Subscription: **Select your Azure subscription**.
-  
-    - Resource group: (create new) **SmartHotelRG**
-  
-    - Name: **SmartHotelVNet**
-  
-    - Region: **IMPORTANT: Select the same location as your Azure SQL Database**.
-
-    ![Screenshot of the Azure portal showing the create virtual network blade 'Basics' tab.](images/Exercise3/create-vnet-2.png "Create Virtual Network - Basics")
-
-3. Select **Next: IP Addresses >**, and enter the following configuration. Then select **Review + create**, then **Create**.
-
-    - IPv4 address space: **192.168.0.0/24** 
-  
-    - First subnet: Select **Add subnet** and enter the following then select **Add**
-
-        - Subnet name: **SmartHotel**
-   
-        - Address range: **192.168.0.0/25**
-  
-    - Second subnet: Select **Add subnet** and enter the following then select **Add**. 
-
-        - Subnet name: **SmartHotelDB**
-   
-        - Address range: **192.168.0.128/25**
-
-    ![Screenshot of the Azure portal showing the create virtual network blade 'IP Addresses' tab.](images/Exercise3/create-vnet-3.png "Create Virtual Network - IP Addresses")
-
-4. Navigate to the **SmartHotelHostDBRG** resource group, and then to the database server. Under **Security**, select **Private endpoint connections**, then select **+ Private endpoint**.
-
-5. On the **Basics** tab, enter the following configuration then select **Next: Resource**:
-
-    - Resource group: **SmartHotelDBRG**
+    - Resource group: **SmartHotelRG**
   
     - Name: **SmartHotel-DB-Endpoint**
   
@@ -1113,7 +1027,7 @@ You will also configure a private endpoint in this network to allow private, sec
   
     ![Screenshot showing the 'Create a private endpoint' blade, 'Basics' tab.](images/Exercise3/private-endpoint-1-1.png "Create a Private Endpoint - Basics")
 
-6.  On the **Resource** tab, enter the following configuration then select **Next: Configuration**:
+3.  On the **Resource** tab, enter the following configuration then select **Next: Configuration**:
 
     - Connection method: **Connect to an Azure resource in my directory**.
   
@@ -1127,7 +1041,7 @@ You will also configure a private endpoint in this network to allow private, sec
 
     ![Screenshot showing the 'Create a private endpoint' blade, 'Resource' tab.](images/Exercise3/private-endpoint-2.png "Create a Private Endpoint - Resource")
    
-7.  On the **Configuration** tab, enter the following configuration then select **Review + Create** then **Create**:
+4.  On the **Configuration** tab, enter the following configuration then select **Review + Create** then **Create**:
 
     - Virtual network: **SmartHotelVNet**
   
@@ -1139,7 +1053,7 @@ You will also configure a private endpoint in this network to allow private, sec
 
     ![Screenshot showing the 'Create a private endpoint' blade, 'Configuration' tab.](images/Exercise3/private-endpoint-3.png "Create a Private Endpoint - Configuration")
 
-8. **Wait** for the deployment to complete. Open the Private Endpoint blade, and note that the FQDN for the endpoint is listed as **\<your database\>.database.windows.net**, with an internal IP address **192.168.0.132**.
+5. **Wait** for the deployment to complete. Open the Private Endpoint blade, and note that the FQDN for the endpoint is listed as **\<your database\>.database.windows.net**, with an internal IP address **192.168.0.132**.
 
     ![Screenshot showing step 1 to find the DNS entry for the SQL database server private endpoint](images/Exercise2/private-endpoint-dns1.png "Private Endpoint DNS")
 
@@ -1154,7 +1068,7 @@ You will also configure a private endpoint in this network to allow private, sec
 
 #### Task summary <!-- omit in toc -->
 
-In this task you created a new virtual network that will be used by your virtual machines when they are migrated to Azure. You also created a private endpoint in this network, which will be used to access the SQL database.
+In this task you created a private endpoint on the virtual network that will be used  to access the SQL database.
 
 ### Task 3: Register the Hyper-V Host with Azure Migrate: Server Migration
 
@@ -1342,41 +1256,7 @@ In this task you will perform a migration of the UbuntuWAF, smarthotelweb1, and 
 
 In this task you used Azure Migrate to create Azure VMs using the settings you have configured, and the data replicated from the Hyper-V machines. This migrated your on-premises VMs to Azure.
 
-### Task 7: Enable Azure Bastion
-
-We will need to access our newly-migrated virtual machines to make some configuration changes. However, the machines do not currently have public IP addresses. Rather than add public IP addresses, we will access them using Azure Bastion.
-
-Azure Bastion requires a dedicated subnet within the same virtual network as the virtual machines. Unfortunately, our SmartHotelVNet does not have any free network space available. To address this, we will first extend the network space.
-
-1. Navigate to the **SmartHotelVNet** virtual network, then select **Address space** under **Settings** on the left.  Add the address space **10.10.0.0/24**, and **Save**.
-
-2. Select **Subnets** under **Settings** on the left, and add a new subnet named **AzureBastionSubnet**, with address space **10.10.0.0/27**.
-
-3. Select **+ Create a resource** in the portal's left navigation, then search for and select **Bastion**, then select **Create**.
-
-4. Fill in the **Create a Bastion** blade as follows:
-
-    - Subscription: **Your subscription**
-  
-    - Resource group: (Create new) **BastionRG**
-  
-    - Name: **SmartHotelBastion**
-  
-    - Region: **Same as SmartHotelVNet**
-  
-    - Virtual Network: **SmartHotelVNet**
-  
-    - Subnet: **AzureBastionSubnet**
-  
-    - Public IP address: (Create new) **Bastion-IP**
-
-    ![Screenshot showing the 'Create a Bastion' blade.](images/Exercise3/bastion-create.png "Create a Bastion")
-
-5. Select **Review + create**, then **Create**.
-
-6. **Wait** for the Bastion to be deployed. This will take several minutes.
-
-### Task 8: Configure the database connection
+### Task 7: Configure the database connection
 
 The application tier machine **smarthotelweb2** is configured to connect to the application database running on the **smarthotelsql** machine.
 
@@ -1412,7 +1292,11 @@ On the migrated VM **smarthotelweb2**, this configuration needs to be updated to
 
 In this task, you updated the **smarthotelweb2** configuration to connect to the Azure SQL Database.
 
-### Task 9: Configure the public IP address and test the SmartHotel application
+### Task 8: Configure the public IP address and test the SmartHotel application
+
+In this task, you will associate an Application Gateway with Web Application Firewall (WAF) to replace the Ubuntu VM with the Azure managed service.
+
+1. Navigate to the **AppGW** Application Gateway
 
 In this task, you will associate a public IP address with the UbuntuWAF VM. This will allow you to verify that the SmartHotel application is running successfully in Azure.
 
@@ -1440,7 +1324,7 @@ In this task, you will associate a public IP address with the UbuntuWAF VM. This
 
 In this task, you assigned a public IP address to the UbuntuWAF VM and verified that the SmartHotel application is now working in Azure.
 
-### Task 10: Post-migration steps
+### Task 9: Post-migration steps
 
 There are a number of post-migration steps that should be completed before the migrated services is ready for production use. These include:
 
@@ -1526,14 +1410,10 @@ You should complete all of these steps *after* attending the Hands-on lab. Failu
 
 1. Delete the **SmartHotelHostRG** resource group containing the SmartHotelHost.
 
-2. Delete the **SmartHotelDBRG** resource group containing the Azure SQL Database.
+2. Delete the **BastionRG** resource group containing the Azure Bastion. 
 
-3. Delete the **BastionRG** resource group containing the Azure Bastion. 
+3. Delete the **SmartHotelRG** resource group containing the migrated VMs and related infrastructure resources.
 
-4. Delete the **SmartHotelRG** resource group containing the migrated VMs and related infrastructure resources.
-
-5. Delete the **AzureMigrateRG** resource group containing the Azure Migrate resources (if not done already at the end of Exercise 3).
+4. Delete the **AzureMigrateRG** resource group containing the Azure Migrate resources (if not done already at the end of Exercise 3).
 
 You should follow all steps provided *after* attending the Hands-on lab.
-
-

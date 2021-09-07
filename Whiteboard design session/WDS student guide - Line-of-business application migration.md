@@ -9,7 +9,7 @@ Whiteboard design session student guide
 </div>
 
 <div class="MCWHeader3">
-November 2020
+September 2021
 </div>
 
 
@@ -35,7 +35,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Customer objections](#customer-objections)
     - [Infographic for common scenarios](#infographic-for-common-scenarios)
   - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
-  - [Step 3: Present the solution](#step-3-present-the-solution)
+  - [Step 3: Future Design Proposals](#step-3-future-design-proposals)
+  - [Step 3: Present the solution](#step-4-present-the-solution)
   - [Wrap-up](#wrap-up)
   - [Additional references](#additional-references)
 
@@ -74,6 +75,7 @@ The CTO, James Lynch, was hired 6 months ago from outside the company, with a ma
 - Linux servers running a mix of RHEL 6.10 and 7 series (7.2 through 7.6) and Ubuntu 16.04
 - The above servers comprise both physical machines as well as VMs hosted on VMware infrastructure managed by vCenter 6.5
 - Multiple database engines, including Microsoft SQL Server, PostgreSQL, and Cassandra
+- Multiple services are also supplied by the systems including Firewall (L3-L7), Web Application Firewall, and Domain Name Service (DNS) Zones
 
 In total, 448 servers and VMs have been identified to date, distributed across 5 main locations, all in the US. There is a complex web of dependencies between servers and no-one has a clear view of the entire estate. Fear of breaking an existing system has been one of the drivers of server count and sprawl.
 
@@ -117,7 +119,7 @@ To address this, James has proposed to the board that Fabrikam should migrate as
 
 Design a solution and prepare to present the solution to the target customer audience in a 15-minute chalk-talk format.
 
-Timeframe: 60 minutes
+Timeframe: 45 minutes
 
 **Business needs**
 
@@ -169,7 +171,55 @@ Directions: With all participants at your table:
 
 Prepare a 15-minute chalk-talk style presentation to the customer.
 
-## Step 3: Present the solution
+## Step 3: Future Design Proposals
+
+**Outcome**
+
+As part of a continued improvement and innovation with the Cloud Adoption Framework, it is important to consider not only where the initial migration will land but how additional Azure resources and services could be incorporated to augment, enhance, or replace core systems that are migrated as part of a LOB migration.  Spend some time giving examples of some services in Azure that could be used to replace or assist existing services on Virtual Machines to optimize the utilization with managed services.
+
+Timeframe: 30 minutes
+
+**Business needs**
+
+Directions: With all participants at your table, answer the following questions and list the answers on a flip chart:
+
+1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
+
+2.  What customer business needs do you need to address with your solution?
+
+3.  What customer services could be more efficiently run or managed by moving them to Azure PaaS services?
+
+**Design**
+
+Directions: With all participants at your table, respond to the following questions on a flip chart:
+
+1.  What type of services housed in general purpose VMs used by Fabrikam could be replaced by Azure services? 
+ 
+2.  What are key features provided by these Azure services that could fulfill their needs?
+
+3.  How would these services perform better than they would do today?
+
+4.  What additional services or features introduced by integrating with the Azure platform could they utilize to better manage the environment?
+
+5.  What type of advantages could be found by utilizing these Azure services:
+    * Application Gateway with Web Application Firewall (WAF)
+    * App Service Plan (Web App or Containers)
+    * Firewall
+    * Front Door
+    * Monitor
+    * Public DNS
+
+**Prepare**
+
+Directions: With all participants at your table:
+
+1.  Identify any customer opportunities that are proposed in solution.
+
+2.  Identify the benefits of your solution.
+
+Prepare a 15-minute chalk-talk style presentation to the customer.
+
+## Step 4: Present the solution
 
 **Outcome**
 
@@ -213,6 +263,11 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | Azure Data Migration Service | https://azure.microsoft.com/services/database-migration/ |
 | Azure VMware Solution | https://azure.microsoft.com/services/azure-vmware/ |
 | Azure SQL Database | https://azure.microsoft.com/services/sql-database/ |
+| Azure Monitor | https://docs.microsoft.com/en-us/azure/azure-monitor/overview |
+| Azure App Services | https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans |
+| Azure Firewall | https://docs.microsoft.com/en-us/azure/firewall/ |
+| Azure Application Gateway | https://docs.microsoft.com/en-us/azure/application-gateway/overview |
+| Azure Public DNS Zone | https://docs.microsoft.com/en-us/azure/dns/ |
 | Azure billing hub | https://docs.microsoft.com/azure/billing/ |
 | Azure cost management | https://azure.microsoft.com/services/cost-management/ |
 | Azure governance | https://azure.microsoft.com/solutions/governance/ |

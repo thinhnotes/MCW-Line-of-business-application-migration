@@ -70,7 +70,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 Duration: 60 minutes
 
-### Task 1: Deploy the on-premises environment
+### Task 1: Deploy the on-premises environment and landing zone
 
 1. Deploy the template **SmartHotelHost.json** to a new resource group. This template deploys a virtual machine running nested Hyper-V, with 4 nested VMs. This comprises the 'on-premises' environment which you will assess and migrate during this lab.
 
@@ -93,3 +93,11 @@ Duration: 60 minutes
     > **Note:** If the SmartHotel application is not shown, wait 10 minutes and try again. It takes **at least 1 hour** from the start of template deployment. You can also check the CPU, network and disk activity levels for the SmartHotelHost VM in the Azure portal, to see if the provisioning is still active.
 
 You should follow all steps provided *before* performing the Hands-on lab.
+
+### Task 3: Verify the landing zone environment
+
+1. Navigate to the **SmartHotelRG** resource group 
+ 
+2. Note the Virtual Network, Bastion resource, Application Gateway, and SQL Server are available.
+
+    ![Listing of expected resources from the landing zone deployment.](images/BeforeTheHOL/landingzone.png) 
