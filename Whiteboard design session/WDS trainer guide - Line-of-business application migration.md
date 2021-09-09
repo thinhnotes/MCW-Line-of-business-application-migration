@@ -9,7 +9,7 @@ Whiteboard design session trainer guide
 </div>
 
 <div class="MCWHeader3">
-November 2020
+September 2021
 </div>
 
 
@@ -19,7 +19,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2020 Microsoft Corporation. All rights reserved.
+© 2021 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -40,17 +40,20 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Customer objections](#customer-objections)
     - [Infographic for common scenarios](#infographic-for-common-scenarios)
   - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
-  - [Step 3: Present the solution](#step-3-present-the-solution)
+  - [Step 3: Future Design Proposals](#step-3-future-design-proposals)
+  - [Step 4: Present the solution](#step-4-present-the-solution)
   - [Wrap-up](#wrap-up)
   - [Additional references](#additional-references)
 - [Line of business application migration whiteboard design session trainer guide](#line-of-business-application-migration-whiteboard-design-session-trainer-guide)
   - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study-1)
   - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution-1)
-  - [Step 3: Present the solution](#step-3-present-the-solution-1)
+  - [Step 3: Future Design Proposals](#step-3-future-design-proposals-1)
+  - [Step 4: Present the solution](#step-4-present-the-solution-1)
   - [Wrap-up](#wrap-up-1)
   - [Preferred target audience](#preferred-target-audience)
   - [Preferred solution](#preferred-solution)
   - [Checklist of preferred objection handling](#checklist-of-preferred-objection-handling)
+  - [Future proposal](#future-proposal)
   - [Customer quote (to be read back to the attendees at the end)](#customer-quote-to-be-read-back-to-the-attendees-at-the-end)
 
 <!-- /TOC -->
@@ -295,7 +298,54 @@ Directions: With all participants at your table:
 
 Prepare a 15-minute chalk-talk style presentation to the customer.
 
-## Step 3: Present the solution
+## Step 3: Future Design Proposals
+
+**Outcome**
+
+As part of a continued improvement and innovation with the Cloud Adoption Framework, it is important to consider not only where the initial migration will land but how additional Azure resources and services could be incorporated to augment, enhance, or replace core systems that are migrated as part of a LOB migration.  Spend some time giving examples of some services in Azure that could be used to replace or assist existing services on Virtual Machines to optimize the utilization with managed services.
+
+Timeframe: 30 minutes
+
+**Business needs**
+
+Directions: With all participants at your table, answer the following questions and list the answers on a flip chart:
+
+1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
+
+2.  What customer business needs do you need to address with your solution?
+
+3.  What customer services could be more efficiently run or managed by moving them to Azure PaaS services?
+
+**Design**
+
+Directions: With all participants at your table, respond to the following questions on a flip chart:
+
+1.  What type of services housed in general purpose VMs used by Fabrikam could be replaced by Azure services? 
+ 
+2.  What are key features provided by these Azure services that could fulfill their needs?
+
+3.  How would these services perform better than they would do today?
+
+4.  What additional services or features introduced by integrating with the Azure platform could they utilize to better manage the environment?
+
+5.  What type of advantages could be found by utilizing these Azure services:
+    * Application Gateway with Web Application Firewall (WAF)
+    * App Service Plan (Web App or Containers)
+    * Firewall
+    * Front Door
+    * Monitor
+    * Public DNS
+
+**Prepare**
+
+Directions: With all participants at your table:
+
+1.  Identify any customer opportunities that are proposed in solution.
+
+2.  Identify the benefits of your solution.
+
+Prepare a 15-minute chalk-talk style presentation to the customer.
+## Step 4: Present the solution
 
 **Outcome**
 
@@ -339,6 +389,11 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | Azure Data Migration Service | https://azure.microsoft.com/services/database-migration/ |
 | Azure VMware Solution | https://azure.microsoft.com/services/azure-vmware/ |
 | Azure SQL Database | https://azure.microsoft.com/services/sql-database/ |
+| Azure Monitor | https://docs.microsoft.com/en-us/azure/azure-monitor/overview |
+| Azure App Services | https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans |
+| Azure Firewall | https://docs.microsoft.com/en-us/azure/firewall/ |
+| Azure Application Gateway | https://docs.microsoft.com/en-us/azure/application-gateway/overview |
+| Azure Public DNS Zone | https://docs.microsoft.com/en-us/azure/dns/ |
 | Azure billing hub | https://docs.microsoft.com/azure/billing/ |
 | Azure cost management | https://azure.microsoft.com/services/cost-management/ |
 | Azure governance | https://azure.microsoft.com/solutions/governance/ |
@@ -374,7 +429,15 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
     -   Try asking questions first that will lead the participants to discover the answers on their own.
 
-## Step 3: Present the solution
+## Step 3: Future Design Proposals
+
+-   Check in with your tables to ensure that they are able to transition and move on to the next steps.
+
+-   Provide some feedback on the services they identify could be updated.
+
+    -   Try asking questions first that will lead the participants to discover the answers on their own.
+
+## Step 4: Present the solution
 
 -   Determine which table will be paired with your table before Step 3 begins.
 
@@ -633,6 +696,18 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
     It is a common myth that all workloads should move to the cloud, and that the cloud will automatically be cheaper. Careful planning will be required to optimize your Azure deployment, and a cost analysis performed to make sure the business case for migration is sound and fully understood.
 
     The [Build a business justification for cloud migration](https://docs.microsoft.com/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) guide is a useful resource for dispelling cloud adoption myths and building a realistic business case.
+
+## Future Proposal
+
+With Fabrikam Fabric's move to Azure, they are entering into a new platform or growth and opportunities. By having the resources in Azure VMs, they can now look at flexible options to move their services from general purpose VMs to secure, manage, & optimized hosted solutions on a case by case basis.  These are a few of the potential solutions and services we have identified during the discovery and design that could be augmented by Azure Services:
+
+| Existing Service | Azure PaaS Solution |
+| --------------- | ------------------ |
+| UbuntuWAF | Front Door or Application Gateway with WAF |
+| Web site on VMs | App Service Plan, ACI, or AKS |
+| VNA Firewall | Azure Firewall |
+| DNS on VMs | Azure DNS Public/Private Zones |
+| Log and management of VMs | Azure Monitor |
 
 ## Customer quote (to be read back to the attendees at the end)
 
