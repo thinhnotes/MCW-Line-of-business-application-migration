@@ -35,8 +35,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Customer objections](#customer-objections)
     - [Infographic for common scenarios](#infographic-for-common-scenarios)
   - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
-  - [Step 3: Future Design Proposals](#step-3-future-design-proposals)
-  - [Step 3: Present the solution](#step-4-present-the-solution)
+  - [Step 3: Present the solution](#step-3-present-the-solution)
   - [Wrap-up](#wrap-up)
   - [Additional references](#additional-references)
 
@@ -60,11 +59,11 @@ Timeframe: 15 minutes
 
 Directions:  With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips.
 
-1.  Meet your table participants and trainer.
+1.  Meet your team participants and trainer.
 
 2.  Read all of the directions for steps 1-3 in the student guide.
 
-3.  As a table team, review the following customer case study.
+3.  As a team, review the following customer case study.
 
 ### Customer situation
 
@@ -96,7 +95,9 @@ To address this, James has proposed to the board that Fabrikam should migrate as
 6.  Ensure the Azure environment used for the migrated applications follow recommended best practices.
    
 7.  Post-migration, be able to track costs, control usage, cross-charge business owners, and identify cost-saving opportunities.
-   
+
+8.  What customer services could be more efficiently run or managed by moving them to Azure PaaS services?
+
 ### Customer objections 
 
 1.  Owners of each business application need to approve any substantial application change, including migration. Business owners have indicated that they will require evidence that migration will be successful before granting approval.
@@ -123,7 +124,7 @@ Timeframe: 45 minutes
 
 **Business needs**
 
-Directions: With all participants at your table, answer the following questions and list the answers on a flip chart:
+Directions: With your team, answer the following questions and list the answers on a flip chart:
 
 1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
 
@@ -131,7 +132,7 @@ Directions: With all participants at your table, answer the following questions 
 
 **Design**
 
-Directions: With all participants at your table, respond to the following questions on a flip chart:
+Directions: With your team, respond to the following questions on a flip chart:
 
 *Migration Assessment*
 
@@ -159,39 +160,7 @@ Directions: With all participants at your table, respond to the following questi
    
 3. How can Fabrikam analyze and optimize their costs, post-migration? Include details of mechanisms for internal charge-back.
 
-**Prepare**
-
-Directions: With all participants at your table:
-
-1.  Identify any customer needs that are not addressed with the proposed solution.
-
-2.  Identify the benefits of your solution.
-
-3.  Determine how you will respond to the customer's objections.
-
-Prepare a 15-minute chalk-talk style presentation to the customer.
-
-## Step 3: Future Design Proposals
-
-**Outcome**
-
-As part of a continued improvement and innovation with the Cloud Adoption Framework, it is important to consider not only where the initial migration will land but how additional Azure resources and services could be incorporated to augment, enhance, or replace core systems that are migrated as part of a LOB migration.  Spend some time giving examples of some services in Azure that could be used to replace or assist existing services on Virtual Machines to optimize the utilization with managed services.
-
-Timeframe: 30 minutes
-
-**Business needs**
-
-Directions: With all participants at your table, answer the following questions and list the answers on a flip chart:
-
-1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
-
-2.  What customer business needs do you need to address with your solution?
-
-3.  What customer services could be more efficiently run or managed by moving them to Azure PaaS services?
-
-**Design**
-
-Directions: With all participants at your table, respond to the following questions on a flip chart:
+*Future Design Proposals*
 
 1.  What type of services housed in general purpose VMs used by Fabrikam could be replaced by Azure services? 
  
@@ -211,15 +180,17 @@ Directions: With all participants at your table, respond to the following questi
 
 **Prepare**
 
-Directions: With all participants at your table:
+Directions: With your team:
 
-1.  Identify any customer opportunities that are proposed in solution.
+1.  Identify any customer needs that are not addressed with the proposed solution.
 
 2.  Identify the benefits of your solution.
 
+3.  Determine how you will respond to the customer's objections.
+
 Prepare a 15-minute chalk-talk style presentation to the customer.
 
-## Step 4: Present the solution
+## Step 3: Present the solution
 
 **Outcome**
 
@@ -231,9 +202,9 @@ Timeframe: 30 minutes
 
 Directions:
 
-1.  Pair with another table.
+1.  Pair with another team.
 
-2.  One table is the Microsoft team and the other table is the customer.
+2.  One team is the Microsoft team and the other team is the customer.
 
 3.  The Microsoft team presents their proposed solution to the customer.
 
@@ -243,13 +214,13 @@ Directions:
 
 6.  The customer team gives feedback to the Microsoft team.
 
-7.  Tables switch roles and repeat Steps 2-6.
+7.  Teams switch roles and repeat Steps 2-6.
 
 ##  Wrap-up 
 
 Timeframe: 15 minutes
 
-Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
+Directions: Teams reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
 ##  Additional references
 
