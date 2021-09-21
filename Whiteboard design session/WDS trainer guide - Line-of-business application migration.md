@@ -40,15 +40,13 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Customer objections](#customer-objections)
     - [Infographic for common scenarios](#infographic-for-common-scenarios)
   - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution)
-  - [Step 3: Future Design Proposals](#step-3-future-design-proposals)
-  - [Step 4: Present the solution](#step-4-present-the-solution)
+  - [Step 3: Present the solution](#step-3-present-the-solution)
   - [Wrap-up](#wrap-up)
   - [Additional references](#additional-references)
 - [Line of business application migration whiteboard design session trainer guide](#line-of-business-application-migration-whiteboard-design-session-trainer-guide)
   - [Step 1: Review the customer case study](#step-1-review-the-customer-case-study-1)
   - [Step 2: Design a proof of concept solution](#step-2-design-a-proof-of-concept-solution-1)
-  - [Step 3: Future Design Proposals](#step-3-future-design-proposals-1)
-  - [Step 4: Present the solution](#step-4-present-the-solution-1)
+  - [Step 3: Present the solution](#step-3-present-the-solution-1)
   - [Wrap-up](#wrap-up-1)
   - [Preferred target audience](#preferred-target-audience)
   - [Preferred solution](#preferred-solution)
@@ -188,11 +186,11 @@ Timeframe: 15 minutes
 
 Directions:  With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips.
 
-1.  Meet your table participants and trainer.
+1.  Meet your team participants and trainer.
 
 2.  Read all of the directions for steps 1-3 in the student guide.
 
-3.  As a table team, review the following customer case study.
+3.  As a team, review the following customer case study.
 
 ### Customer situation
 
@@ -204,7 +202,7 @@ The CTO, James Lynch, was hired 6 months ago from outside the company, with a ma
 - The above servers comprise both physical machines as well as VMs hosted on VMware infrastructure managed by vCenter 6.5
 - Multiple database engines, including Microsoft SQL Server, PostgreSQL, and Cassandra
 
-In total, 448 servers and VMs have been identified to date, distributed across 5 main locations, all in the US. There is a complex web of dependencies between servers and no-one has a clear view of the entire estate. Fear of breaking an existing system has been one of the drivers of server count and sprawl.
+In total, 448 servers and VMs have been identified to date, distributed across 5 main locations, all in the US. There is a complex web of dependencies between servers, and no-one has a clear view of the entire estate. Fear of breaking an existing system has been one of the drivers of server count and sprawl.
 
 To address this, James has proposed to the board that Fabrikam should migrate as much of the existing IT infrastructure as possible to the cloud. As well as eliminating IT infrastructure overheads, this will be an opportunity to 'clean house' and create a modern, fit-for-purpose IT environment, as well as realizing substantial cost savings relative to their current infrastructure. The board have agreed, and Microsoft Azure has been selected as the cloud provider.
 
@@ -250,7 +248,7 @@ Timeframe: 60 minutes
 
 **Business needs**
 
-Directions: With all participants at your table, answer the following questions and list the answers on a flip chart:
+Directions: With your team, answer the following questions and list the answers on a flip chart:
 
 1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
 
@@ -258,7 +256,7 @@ Directions: With all participants at your table, answer the following questions 
 
 **Design**
 
-Directions: With all participants at your table, respond to the following questions on a flip chart:
+Directions: With your team, respond to the following questions on a flip chart:
 
 *Migration Assessment*
 
@@ -276,7 +274,7 @@ Directions: With all participants at your table, respond to the following questi
 
 2.  What tools are available for migration execution? Provide options for VMware VMs, physical servers, and databases.
    
-2.  What post-migration steps should be carried out for business-critical applications migrated to Azure? What guidance is available to ensure nothing is missed?
+2.  What post-migration steps should be carried out for business-critical applications migrated to Azure?  What guidance is available to ensure nothing is missed?
 
 *Cost management and optimization*
 
@@ -286,39 +284,7 @@ Directions: With all participants at your table, respond to the following questi
    
 3. How can Fabrikam analyze and optimize their costs, post-migration? Include details of mechanisms for internal charge-back.
 
-**Prepare**
-
-Directions: With all participants at your table:
-
-1.  Identify any customer needs that are not addressed with the proposed solution.
-
-2.  Identify the benefits of your solution.
-
-3.  Determine how you will respond to the customer's objections.
-
-Prepare a 15-minute chalk-talk style presentation to the customer.
-
-## Step 3: Future Design Proposals
-
-**Outcome**
-
-As part of a continued improvement and innovation with the Cloud Adoption Framework, it is important to consider not only where the initial migration will land but how additional Azure resources and services could be incorporated to augment, enhance, or replace core systems that are migrated as part of a LOB migration.  Spend some time giving examples of some services in Azure that could be used to replace or assist existing services on Virtual Machines to optimize the utilization with managed services.
-
-Timeframe: 30 minutes
-
-**Business needs**
-
-Directions: With all participants at your table, answer the following questions and list the answers on a flip chart:
-
-1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
-
-2.  What customer business needs do you need to address with your solution?
-
-3.  What customer services could be more efficiently run or managed by moving them to Azure PaaS services?
-
-**Design**
-
-Directions: With all participants at your table, respond to the following questions on a flip chart:
+*Future Design Proposals*
 
 1.  What type of services housed in general purpose VMs used by Fabrikam could be replaced by Azure services? 
  
@@ -338,14 +304,17 @@ Directions: With all participants at your table, respond to the following questi
 
 **Prepare**
 
-Directions: With all participants at your table:
+Directions: With your team:
 
-1.  Identify any customer opportunities that are proposed in solution.
+1.  Identify any customer needs that are not addressed with the proposed solution.
 
 2.  Identify the benefits of your solution.
 
+3.  Determine how you will respond to the customer's objections.
+
 Prepare a 15-minute chalk-talk style presentation to the customer.
-## Step 4: Present the solution
+
+## Step 3: Present the solution
 
 **Outcome**
 
@@ -357,9 +326,9 @@ Timeframe: 30 minutes
 
 Directions:
 
-1.  Pair with another table.
+1.  Pair with another team.
 
-2.  One table is the Microsoft team and the other table is the customer.
+2.  One team is the Microsoft team and the other team is the customer.
 
 3.  The Microsoft team presents their proposed solution to the customer.
 
@@ -369,13 +338,13 @@ Directions:
 
 6.  The customer team gives feedback to the Microsoft team.
 
-7.  Tables switch roles and repeat Steps 2-6.
+7.  Teams switch roles and repeat Steps 2-6.
 
 ##  Wrap-up 
 
 Timeframe: 15 minutes
 
-Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
+Directions: Teams reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
 ##  Additional references
 
@@ -409,17 +378,17 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
 ## Step 1: Review the customer case study
 
--   Check in with your table participants to introduce yourself as the trainer.
+-   Check in with your team participants to introduce yourself as the trainer.
 
 -   Ask, "What questions do you have about the customer case study?"
 
 -   Briefly review the steps and timeframe of the whiteboard design session.
 
--   Ready, set, go! Let the table participants begin.
+-   Ready, set, go! Let the team participants begin.
 
 ## Step 2: Design a proof of concept solution
 
--   Check in with your tables to ensure that they are transitioning from step to step on time.
+-   Check in with your teams to ensure that they are transitioning from step to step on time.
 
 -   Provide some feedback on their responses to the business needs and design.
 
@@ -429,19 +398,11 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
     -   Try asking questions first that will lead the participants to discover the answers on their own.
 
-## Step 3: Future Design Proposals
+## Step 3: Present the solution
 
--   Check in with your tables to ensure that they are able to transition and move on to the next steps.
+-   Determine which team will be paired with your team before Step 3 begins.
 
--   Provide some feedback on the services they identify could be updated.
-
-    -   Try asking questions first that will lead the participants to discover the answers on their own.
-
-## Step 4: Present the solution
-
--   Determine which table will be paired with your table before Step 3 begins.
-
--   For the first round, assign one table as the presenting team and the other table as the customer.
+-   For the first round, assign one team as the presenting team and the other team as the customer.
 
 -   Have the presenting team present their solution to the customer team.
 
@@ -453,12 +414,12 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
 ## Wrap-up
 
--   Have the table participants reconvene with the larger session group to hear the facilitator/SME share the following preferred solution.
+-   Have the team participants reconvene with the larger session group to hear the facilitator/SME share the following preferred solution.
 
 ##  Preferred target audience
 
 - James Lynch, CTO
-- Relevant IT department heads under James (e.g. Head of Operations, Head of Application Development, etc.)
+- Relevant IT department heads under James (e.g., Head of Operations, Head of Application Development, etc.)
 - Business application owners
 - CFO - to understand cost implications, including the CapEx/OpEx switch
 - CSO - to understand security implications
@@ -589,7 +550,7 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
     While Azure Migrate does not support assessment for physical servers, it does support migration, using the Azure Site Recovery migration engine. The approach and architecture are similar to that used for VMware VMs. Alternatively, a number of third-party migration tools is listed on the [Azure Migration hub](https://azure.microsoft.com/migration/) and integrated into Azure Migrate.
 
-    An alternative approach for migrating an on-premises VMware environment is to lift-and-shift into the [Azure VMware solution](https://azure.microsoft.com/services/azure-vmware/). This provides an Azure-hosted VMware environment. This approach offers speed of migration, application compatibility, and the ability to continue to use the tools and knowledge already embedded in the team. It does not offer all the advantages of a full cloud migration, but can still be very useful for difficult workloads or to meet aggresive schedules.
+    An alternative approach for migrating an on-premises VMware environment is to lift-and-shift into the [Azure VMware solution](https://azure.microsoft.com/services/azure-vmware/). This provides an Azure-hosted VMware environment. This approach offers speed of migration, application compatibility, and the ability to continue to use the tools and knowledge already embedded in the team. It does not offer all the advantages of a full cloud migration, but can still be very useful for difficult workloads or to meet aggressive schedules.
 
     For database migration, dedicated database migration tools should be preferred.
     

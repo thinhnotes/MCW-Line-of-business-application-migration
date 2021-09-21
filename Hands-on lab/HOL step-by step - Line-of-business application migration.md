@@ -19,7 +19,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2020 Microsoft Corporation. All rights reserved.
+© 2021 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -116,7 +116,7 @@ The application, web, and web proxy tiers will be migrated to Azure VMs using Az
 
 Refer to the [Before the HOL - Line-of-business application migration](./Before%20the%20HOL%20-%20Line-of-business%20application%20migration.md) setup guide manual before continuing to the lab exercises.
 
-**IMPORTANT**: Allow at least 60 minutes to deploy the on-premises environment before you start the lab.
+**Important**: Allow at least 60 minutes to deploy the on-premises environment before you start the lab.
 
 ## Exercise 1: Discover and assess the on-premises environment
 
@@ -169,7 +169,7 @@ In this task, you will deploy and configure the Azure Migrate appliance in the o
 
     ![Screenshot of the Azure Migrate 'Discover machines' blade showing the Azure Migrate project key.](images/Exercise1/key.png "Azure Migrate project key")
 
-4.  Read through the instructions on how to download, deploy and configure the Azure Migrate appliance. Close the 'Discover machines' blade (do **not** download the .VHD file or .ZIP file, the .VHD has already been downloaded for you).
+4.  Read the instructions on how to download, deploy and configure the Azure Migrate appliance. Close the 'Discover machines' blade (do **not** download the .VHD file or .ZIP file, the .VHD has already been downloaded for you).
 
 5. In a separate browser tab, navigate to the Azure portal. In the global search box, enter **SmartHotelHost**, then select the **SmartHotelHost** virtual machine.
 
@@ -359,7 +359,7 @@ In this task, you will configure the Azure Migrate appliance and use it to compl
 > 
 > Once the CSV is populated, you can then import the systems into the Migrate assessment phase by doing the following:
 >
->1.	Go to the Azure Migrate, under Migration goals, select the appropriate resource type (ie: Windows, Linux and SQL Server).
+>1.	Go to the Azure Migrate, under Migration goals, select the appropriate resource type (i.e., Windows, Linux and SQL Server).
 >
 >2.	Select the **Discover** link.
 >
