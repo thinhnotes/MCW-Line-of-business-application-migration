@@ -201,6 +201,7 @@ The CTO, James Lynch, was hired 6 months ago from outside the company, with a ma
 - Linux servers running a mix of RHEL 6.10 and 7 series (7.2 through 7.6) and Ubuntu 16.04
 - The above servers comprise both physical machines as well as VMs hosted on VMware infrastructure managed by vCenter 6.5
 - Multiple database engines, including Microsoft SQL Server, PostgreSQL, and Cassandra
+- Multiple services are also supplied by the systems including Firewall (L3-L7), Web Application Firewall, and Domain Name Service (DNS) Zones
 
 In total, 448 servers and VMs have been identified to date, distributed across 5 main locations, all in the US. There is a complex web of dependencies between servers, and no-one has a clear view of the entire estate. Fear of breaking an existing system has been one of the drivers of server count and sprawl.
 
@@ -221,7 +222,9 @@ To address this, James has proposed to the board that Fabrikam should migrate as
 6.  Ensure the Azure environment used for the migrated applications follow recommended best practices.
    
 7.  Post-migration, be able to track costs, control usage, cross-charge business owners, and identify cost-saving opportunities.
-   
+
+8.  What customer services could be more efficiently run or managed by moving them to Azure PaaS services?
+
 ### Customer objections 
 
 1.  Owners of each business application need to approve any substantial application change, including migration. Business owners have indicated that they will require evidence that migration will be successful before granting approval.
@@ -372,7 +375,6 @@ Directions: Teams reconvene with the larger group to hear the facilitator/SME sh
 | Azure landing zones | https://docs.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/ |
 | Azure virtual datacenter | https://docs.microsoft.com/azure/architecture/vdc/ |
 | Building a cloud migration business case | https://docs.microsoft.com/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case |
-
 
 # Line of business application migration whiteboard design session trainer guide
 
