@@ -620,6 +620,19 @@ Directions: Teams reconvene with the larger group to hear the facilitator/SME sh
 
     Key to cost efficiency is creating a cost-conscious culture within the organization. Ensure that those making decisions on deployment are aware of (and ideally accountable for) the cost implications.
 
+*Future Design Proposal*
+
+With Fabrikam Fabric's move to Azure, they are entering into a new platform or growth and opportunities. By having the resources in Azure VMs, they can now look at flexible options to move their services from general purpose VMs to secure, manage, & optimized hosted solutions on a case by case basis.  These are a few of the potential solutions and services we have identified during the discovery and design that could be augmented by Azure Services:
+
+| Existing Service | Azure PaaS Solution |
+| --------------- | ------------------ |
+| UbuntuWAF | Front Door or Application Gateway with WAF |
+| Web site on VMs | App Service Plan, ACI, or AKS |
+| VNA Firewall | Azure Firewall |
+| DNS on VMs | Azure DNS Public/Private Zones |
+| Log and management of VMs | Azure Monitor |
+
+
 ## Checklist of preferred objection handling
 
 1.  Owners of each business application need to approve any substantial application change, including migration. Business owners have indicated that they will require evidence that migration will be successful before granting approval.
@@ -658,17 +671,6 @@ Directions: Teams reconvene with the larger group to hear the facilitator/SME sh
 
     The [Build a business justification for cloud migration](https://docs.microsoft.com/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) guide is a useful resource for dispelling cloud adoption myths and building a realistic business case.
 
-## Future Proposal
-
-With Fabrikam Fabric's move to Azure, they are entering into a new platform or growth and opportunities. By having the resources in Azure VMs, they can now look at flexible options to move their services from general purpose VMs to secure, manage, & optimized hosted solutions on a case by case basis.  These are a few of the potential solutions and services we have identified during the discovery and design that could be augmented by Azure Services:
-
-| Existing Service | Azure PaaS Solution |
-| --------------- | ------------------ |
-| UbuntuWAF | Front Door or Application Gateway with WAF |
-| Web site on VMs | App Service Plan, ACI, or AKS |
-| VNA Firewall | Azure Firewall |
-| DNS on VMs | Azure DNS Public/Private Zones |
-| Log and management of VMs | Azure Monitor |
 
 ## Customer quote (to be read back to the attendees at the end)
 
