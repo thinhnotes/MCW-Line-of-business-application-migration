@@ -626,13 +626,60 @@ Directions: Teams reconvene with the larger group to hear the facilitator/SME sh
 
 With Fabrikam Fabric's move to Azure, they are entering into a new platform or growth and opportunities. By having the resources in Azure VMs, they can now look at flexible options to move their services from general purpose VMs to secure, manage, & optimized hosted solutions on a case by case basis.  These are a few of the potential solutions and services we have identified during the discovery and design that could be augmented by Azure Services:
 
-| Existing Service | Azure PaaS Solution |
-| --------------- | ------------------ |
-| UbuntuWAF | Front Door or Application Gateway with WAF |
-| Web site on VMs | App Service Plan, ACI, or AKS |
-| VNA Firewall | Azure Firewall |
-| DNS on VMs | Azure DNS Public/Private Zones |
-| Log and management of VMs | Azure Monitor |
+1.  What type of services housed in general purpose VMs used by Fabrikam could be replaced by Azure services? 
+
+    | Existing Service | Azure PaaS Solution |
+    | --------------- | ------------------ |
+    | UbuntuWAF | Front Door or Application Gateway with WAF |
+    | Web site on VMs | App Service Plan, ACI, or AKS |
+    | VNA Firewall | Azure Firewall |
+    | DNS on VMs | Azure DNS Public/Private Zones |
+    | Log and management of VMs | Azure Monitor |
+
+2.  What are key features provided by these Azure services that could fulfill their needs?
+
+    There are several lists of features, but here are just a few of the features by service listed above:
+
+    * Common (all services)
+        * Built in management and upgrading of services
+        * Essential SLA and platform monitoring
+    * Front Door
+        * Built in global redundancy and scaling
+        * More advanced rule routing
+    * Application Gateway
+        * Built in scaling
+        * Web routing
+    * App Service Plan
+        * Built in scaling
+        * CI/CD integration
+        * Deployment services
+    * Azure Firewall
+        * Infinite scaling
+        * Integrated AI Traffic Monitoring option
+    * Azure DNS
+        * Integration with Azure services
+        * Global redundancy and scaling
+        * Multi-root TLD support (ie: .com, .net, .org roots)
+
+3.  How would these services perform better than they would do today?
+
+    In addition to the features listed above, for the most part, specialized services in Azure will give you more compute power and features for the same cost as a Virtual Machine providing better cost efficiencies.
+
+4.  What additional services or features introduced by integrating with the Azure platform could they utilize to better manage the environment?
+
+    * Azure Monitor
+        * Centralized fast log queries
+        * Built-in visualizations
+        * Integration with Azure services
+        * Built-in alerting and ITSM integration
+
+5.  What type of advantages could be found by utilizing these Azure services:
+    * Application Gateway with Web Application Firewall (WAF)
+    * App Service Plan (Web App or Containers)
+    * Firewall
+    * Front Door
+    * Monitor
+    * Public DNS
 
 
 ## Checklist of preferred objection handling
