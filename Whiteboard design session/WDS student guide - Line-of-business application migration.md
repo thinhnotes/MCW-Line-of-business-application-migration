@@ -9,7 +9,7 @@ Whiteboard design session student guide
 </div>
 
 <div class="MCWHeader3">
-November 2020
+September 2021
 </div>
 
 
@@ -19,7 +19,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2020 Microsoft Corporation. All rights reserved.
+© 2021 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -59,11 +59,11 @@ Timeframe: 15 minutes
 
 Directions:  With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips.
 
-1.  Meet your table participants and trainer.
+1.  Meet your team participants and trainer.
 
 2.  Read all of the directions for steps 1-3 in the student guide.
 
-3.  As a table team, review the following customer case study.
+3.  As a team, review the following customer case study.
 
 ### Customer situation
 
@@ -74,8 +74,9 @@ The CTO, James Lynch, was hired 6 months ago from outside the company, with a ma
 - Linux servers running a mix of RHEL 6.10 and 7 series (7.2 through 7.6) and Ubuntu 16.04
 - The above servers comprise both physical machines as well as VMs hosted on VMware infrastructure managed by vCenter 6.5
 - Multiple database engines, including Microsoft SQL Server, PostgreSQL, and Cassandra
+- Multiple services are also supplied by the systems including Firewall (L3-L7), Web Application Firewall, and Domain Name Service (DNS) Zones
 
-In total, 448 servers and VMs have been identified to date, distributed across 5 main locations, all in the US. There is a complex web of dependencies between servers and no-one has a clear view of the entire estate. Fear of breaking an existing system has been one of the drivers of server count and sprawl.
+In total, 448 servers and VMs have been identified to date, distributed across 5 main locations, all in the US. There is a complex web of dependencies between servers, and no-one has a clear view of the entire estate. Fear of breaking an existing system has been one of the drivers of server count and sprawl.
 
 To address this, James has proposed to the board that Fabrikam should migrate as much of the existing IT infrastructure as possible to the cloud. As well as eliminating IT infrastructure overheads, this will be an opportunity to 'clean house' and create a modern, fit-for-purpose IT environment, as well as realizing substantial cost savings relative to their current infrastructure. The board have agreed, and Microsoft Azure has been selected as the cloud provider.
 
@@ -94,7 +95,9 @@ To address this, James has proposed to the board that Fabrikam should migrate as
 6.  Ensure the Azure environment used for the migrated applications follow recommended best practices.
    
 7.  Post-migration, be able to track costs, control usage, cross-charge business owners, and identify cost-saving opportunities.
-   
+
+8.  What customer services could be more efficiently run or managed by moving them to Azure PaaS services?
+
 ### Customer objections 
 
 1.  Owners of each business application need to approve any substantial application change, including migration. Business owners have indicated that they will require evidence that migration will be successful before granting approval.
@@ -121,7 +124,7 @@ Timeframe: 60 minutes
 
 **Business needs**
 
-Directions: With all participants at your table, answer the following questions and list the answers on a flip chart:
+Directions: With your team, answer the following questions and list the answers on a flip chart:
 
 1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
 
@@ -129,7 +132,7 @@ Directions: With all participants at your table, answer the following questions 
 
 **Design**
 
-Directions: With all participants at your table, respond to the following questions on a flip chart:
+Directions: With your team, respond to the following questions on a flip chart:
 
 *Migration Assessment*
 
@@ -157,9 +160,27 @@ Directions: With all participants at your table, respond to the following questi
    
 3. How can Fabrikam analyze and optimize their costs, post-migration? Include details of mechanisms for internal charge-back.
 
+*Future Design Proposals*
+
+1.  What type of services housed in general purpose VMs used by Fabrikam could be replaced by Azure services? 
+ 
+2.  What are key features provided by these Azure services that could fulfill their needs?
+
+3.  How would these services perform better than they would do today?
+
+4.  What additional services or features introduced by integrating with the Azure platform could they utilize to better manage the environment?
+
+5.  What type of advantages could be found by utilizing these Azure services:
+    * Application Gateway with Web Application Firewall (WAF)
+    * App Service Plan (Web App or Containers)
+    * Firewall
+    * Front Door
+    * Monitor
+    * Public DNS
+
 **Prepare**
 
-Directions: With all participants at your table:
+Directions: With your team:
 
 1.  Identify any customer needs that are not addressed with the proposed solution.
 
@@ -181,9 +202,9 @@ Timeframe: 30 minutes
 
 Directions:
 
-1.  Pair with another table.
+1.  Pair with another team.
 
-2.  One table is the Microsoft team and the other table is the customer.
+2.  One team is the Microsoft team and the other team is the customer.
 
 3.  The Microsoft team presents their proposed solution to the customer.
 
@@ -193,13 +214,13 @@ Directions:
 
 6.  The customer team gives feedback to the Microsoft team.
 
-7.  Tables switch roles and repeat Steps 2-6.
+7.  Teams switch roles and repeat Steps 2-6.
 
 ##  Wrap-up 
 
 Timeframe: 15 minutes
 
-Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
+Directions: Teams reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
 ##  Additional references
 
@@ -213,6 +234,11 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | Azure Data Migration Service | https://azure.microsoft.com/services/database-migration/ |
 | Azure VMware Solution | https://azure.microsoft.com/services/azure-vmware/ |
 | Azure SQL Database | https://azure.microsoft.com/services/sql-database/ |
+| Azure Monitor | https://docs.microsoft.com/en-us/azure/azure-monitor/overview |
+| Azure App Services | https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans |
+| Azure Firewall | https://docs.microsoft.com/en-us/azure/firewall/ |
+| Azure Application Gateway | https://docs.microsoft.com/en-us/azure/application-gateway/overview |
+| Azure Public DNS Zone | https://docs.microsoft.com/en-us/azure/dns/ |
 | Azure billing hub | https://docs.microsoft.com/azure/billing/ |
 | Azure cost management | https://azure.microsoft.com/services/cost-management/ |
 | Azure governance | https://azure.microsoft.com/solutions/governance/ |

@@ -8,7 +8,7 @@ Fabrikam Fabrics is a major manufacturer and distributor of clothing and soft fu
 
 The board has approved a plan to migrate as much existing infrastructure as possible to Azure, to eliminate IT infrastructure overheads and 'clean house'. Your team has been tasked with planning and executing this migration.
 
-November 2020
+September 2021
 
 ## Target audience
 

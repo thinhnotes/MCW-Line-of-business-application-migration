@@ -9,7 +9,7 @@ Whiteboard design session trainer guide
 </div>
 
 <div class="MCWHeader3">
-November 2020
+September 2021
 </div>
 
 
@@ -19,7 +19,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2020 Microsoft Corporation. All rights reserved.
+© 2021 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -51,6 +51,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Preferred target audience](#preferred-target-audience)
   - [Preferred solution](#preferred-solution)
   - [Checklist of preferred objection handling](#checklist-of-preferred-objection-handling)
+  - [Future proposal](#future-proposal)
   - [Customer quote (to be read back to the attendees at the end)](#customer-quote-to-be-read-back-to-the-attendees-at-the-end)
 
 <!-- /TOC -->
@@ -185,11 +186,11 @@ Timeframe: 15 minutes
 
 Directions:  With all participants in the session, the facilitator/SME presents an overview of the customer case study along with technical tips.
 
-1.  Meet your table participants and trainer.
+1.  Meet your team participants and trainer.
 
 2.  Read all of the directions for steps 1-3 in the student guide.
 
-3.  As a table team, review the following customer case study.
+3.  As a team, review the following customer case study.
 
 ### Customer situation
 
@@ -200,8 +201,9 @@ The CTO, James Lynch, was hired 6 months ago from outside the company, with a ma
 - Linux servers running a mix of RHEL 6.10 and 7 series (7.2 through 7.6) and Ubuntu 16.04
 - The above servers comprise both physical machines as well as VMs hosted on VMware infrastructure managed by vCenter 6.5
 - Multiple database engines, including Microsoft SQL Server, PostgreSQL, and Cassandra
+- Multiple services are also supplied by the systems including Firewall (L3-L7), Web Application Firewall, and Domain Name Service (DNS) Zones
 
-In total, 448 servers and VMs have been identified to date, distributed across 5 main locations, all in the US. There is a complex web of dependencies between servers and no-one has a clear view of the entire estate. Fear of breaking an existing system has been one of the drivers of server count and sprawl.
+In total, 448 servers and VMs have been identified to date, distributed across 5 main locations, all in the US. There is a complex web of dependencies between servers, and no-one has a clear view of the entire estate. Fear of breaking an existing system has been one of the drivers of server count and sprawl.
 
 To address this, James has proposed to the board that Fabrikam should migrate as much of the existing IT infrastructure as possible to the cloud. As well as eliminating IT infrastructure overheads, this will be an opportunity to 'clean house' and create a modern, fit-for-purpose IT environment, as well as realizing substantial cost savings relative to their current infrastructure. The board have agreed, and Microsoft Azure has been selected as the cloud provider.
 
@@ -220,7 +222,9 @@ To address this, James has proposed to the board that Fabrikam should migrate as
 6.  Ensure the Azure environment used for the migrated applications follow recommended best practices.
    
 7.  Post-migration, be able to track costs, control usage, cross-charge business owners, and identify cost-saving opportunities.
-   
+
+8.  What customer services could be more efficiently run or managed by moving them to Azure PaaS services?
+
 ### Customer objections 
 
 1.  Owners of each business application need to approve any substantial application change, including migration. Business owners have indicated that they will require evidence that migration will be successful before granting approval.
@@ -247,7 +251,7 @@ Timeframe: 60 minutes
 
 **Business needs**
 
-Directions: With all participants at your table, answer the following questions and list the answers on a flip chart:
+Directions: With your team, answer the following questions and list the answers on a flip chart:
 
 1.  Who should you present this solution to? Who is your target customer audience? Who are the decision makers?
 
@@ -255,7 +259,7 @@ Directions: With all participants at your table, answer the following questions 
 
 **Design**
 
-Directions: With all participants at your table, respond to the following questions on a flip chart:
+Directions: With your team, respond to the following questions on a flip chart:
 
 *Migration Assessment*
 
@@ -273,7 +277,7 @@ Directions: With all participants at your table, respond to the following questi
 
 2.  What tools are available for migration execution? Provide options for VMware VMs, physical servers, and databases.
    
-2.  What post-migration steps should be carried out for business-critical applications migrated to Azure? What guidance is available to ensure nothing is missed?
+2.  What post-migration steps should be carried out for business-critical applications migrated to Azure?  What guidance is available to ensure nothing is missed?
 
 *Cost management and optimization*
 
@@ -283,9 +287,27 @@ Directions: With all participants at your table, respond to the following questi
    
 3. How can Fabrikam analyze and optimize their costs, post-migration? Include details of mechanisms for internal charge-back.
 
+*Future Design Proposals*
+
+1.  What type of services housed in general purpose VMs used by Fabrikam could be replaced by Azure services? 
+ 
+2.  What are key features provided by these Azure services that could fulfill their needs?
+
+3.  How would these services perform better than they would do today?
+
+4.  What additional services or features introduced by integrating with the Azure platform could they utilize to better manage the environment?
+
+5.  What type of advantages could be found by utilizing these Azure services:
+    * Application Gateway with Web Application Firewall (WAF)
+    * App Service Plan (Web App or Containers)
+    * Firewall
+    * Front Door
+    * Monitor
+    * Public DNS
+
 **Prepare**
 
-Directions: With all participants at your table:
+Directions: With your team:
 
 1.  Identify any customer needs that are not addressed with the proposed solution.
 
@@ -307,9 +329,9 @@ Timeframe: 30 minutes
 
 Directions:
 
-1.  Pair with another table.
+1.  Pair with another team.
 
-2.  One table is the Microsoft team and the other table is the customer.
+2.  One team is the Microsoft team and the other team is the customer.
 
 3.  The Microsoft team presents their proposed solution to the customer.
 
@@ -319,13 +341,13 @@ Directions:
 
 6.  The customer team gives feedback to the Microsoft team.
 
-7.  Tables switch roles and repeat Steps 2-6.
+7.  Teams switch roles and repeat Steps 2-6.
 
 ##  Wrap-up 
 
 Timeframe: 15 minutes
 
-Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
+Directions: Teams reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
 ##  Additional references
 
@@ -339,6 +361,11 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | Azure Data Migration Service | https://azure.microsoft.com/services/database-migration/ |
 | Azure VMware Solution | https://azure.microsoft.com/services/azure-vmware/ |
 | Azure SQL Database | https://azure.microsoft.com/services/sql-database/ |
+| Azure Monitor | https://docs.microsoft.com/en-us/azure/azure-monitor/overview |
+| Azure App Services | https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans |
+| Azure Firewall | https://docs.microsoft.com/en-us/azure/firewall/ |
+| Azure Application Gateway | https://docs.microsoft.com/en-us/azure/application-gateway/overview |
+| Azure Public DNS Zone | https://docs.microsoft.com/en-us/azure/dns/ |
 | Azure billing hub | https://docs.microsoft.com/azure/billing/ |
 | Azure cost management | https://azure.microsoft.com/services/cost-management/ |
 | Azure governance | https://azure.microsoft.com/solutions/governance/ |
@@ -349,22 +376,21 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 | Azure virtual datacenter | https://docs.microsoft.com/azure/architecture/vdc/ |
 | Building a cloud migration business case | https://docs.microsoft.com/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case |
 
-
 # Line of business application migration whiteboard design session trainer guide
 
 ## Step 1: Review the customer case study
 
--   Check in with your table participants to introduce yourself as the trainer.
+-   Check in with your team participants to introduce yourself as the trainer.
 
 -   Ask, "What questions do you have about the customer case study?"
 
 -   Briefly review the steps and timeframe of the whiteboard design session.
 
--   Ready, set, go! Let the table participants begin.
+-   Ready, set, go! Let the team participants begin.
 
 ## Step 2: Design a proof of concept solution
 
--   Check in with your tables to ensure that they are transitioning from step to step on time.
+-   Check in with your teams to ensure that they are transitioning from step to step on time.
 
 -   Provide some feedback on their responses to the business needs and design.
 
@@ -376,9 +402,9 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
 ## Step 3: Present the solution
 
--   Determine which table will be paired with your table before Step 3 begins.
+-   Determine which team will be paired with your team before Step 3 begins.
 
--   For the first round, assign one table as the presenting team and the other table as the customer.
+-   For the first round, assign one team as the presenting team and the other team as the customer.
 
 -   Have the presenting team present their solution to the customer team.
 
@@ -390,12 +416,12 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
 ## Wrap-up
 
--   Have the table participants reconvene with the larger session group to hear the facilitator/SME share the following preferred solution.
+-   Have the team participants reconvene with the larger session group to hear the facilitator/SME share the following preferred solution.
 
 ##  Preferred target audience
 
 - James Lynch, CTO
-- Relevant IT department heads under James (e.g. Head of Operations, Head of Application Development, etc.)
+- Relevant IT department heads under James (e.g., Head of Operations, Head of Application Development, etc.)
 - Business application owners
 - CFO - to understand cost implications, including the CapEx/OpEx switch
 - CSO - to understand security implications
@@ -526,7 +552,7 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
     While Azure Migrate does not support assessment for physical servers, it does support migration, using the Azure Site Recovery migration engine. The approach and architecture are similar to that used for VMware VMs. Alternatively, a number of third-party migration tools is listed on the [Azure Migration hub](https://azure.microsoft.com/migration/) and integrated into Azure Migrate.
 
-    An alternative approach for migrating an on-premises VMware environment is to lift-and-shift into the [Azure VMware solution](https://azure.microsoft.com/services/azure-vmware/). This provides an Azure-hosted VMware environment. This approach offers speed of migration, application compatibility, and the ability to continue to use the tools and knowledge already embedded in the team. It does not offer all the advantages of a full cloud migration, but can still be very useful for difficult workloads or to meet aggresive schedules.
+    An alternative approach for migrating an on-premises VMware environment is to lift-and-shift into the [Azure VMware solution](https://azure.microsoft.com/services/azure-vmware/). This provides an Azure-hosted VMware environment. This approach offers speed of migration, application compatibility, and the ability to continue to use the tools and knowledge already embedded in the team. It does not offer all the advantages of a full cloud migration, but can still be very useful for difficult workloads or to meet aggressive schedules.
 
     For database migration, dedicated database migration tools should be preferred.
     
@@ -596,6 +622,66 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
 
     Key to cost efficiency is creating a cost-conscious culture within the organization. Ensure that those making decisions on deployment are aware of (and ideally accountable for) the cost implications.
 
+*Future Design Proposal*
+
+With Fabrikam Fabric's move to Azure, they are entering into a new platform or growth and opportunities. By having the resources in Azure VMs, they can now look at flexible options to move their services from general purpose VMs to secure, manage, & optimized hosted solutions on a case by case basis.  These are a few of the potential solutions and services we have identified during the discovery and design that could be augmented by Azure Services:
+
+1.  What type of services housed in general purpose VMs used by Fabrikam could be replaced by Azure services? 
+
+    | Existing Service | Azure PaaS Solution |
+    | --------------- | ------------------ |
+    | UbuntuWAF | Front Door or Application Gateway with WAF |
+    | Web site on VMs | App Service Plan, ACI, or AKS |
+    | VNA Firewall | Azure Firewall |
+    | DNS on VMs | Azure DNS Public/Private Zones |
+    | Log and management of VMs | Azure Monitor |
+
+2.  What are key features provided by these Azure services that could fulfill their needs?
+
+    There are several lists of features, but here are just a few of the features by service listed above:
+
+    * Common (all services)
+        * Built in management and upgrading of services
+        * Essential SLA and platform monitoring
+    * Front Door
+        * Built in global redundancy and scaling
+        * More advanced rule routing
+    * Application Gateway
+        * Built in scaling
+        * Web routing
+    * App Service Plan
+        * Built in scaling
+        * CI/CD integration
+        * Deployment services
+    * Azure Firewall
+        * Infinite scaling
+        * Integrated AI Traffic Monitoring option
+    * Azure DNS
+        * Integration with Azure services
+        * Global redundancy and scaling
+        * Multi-root TLD support (ie: .com, .net, .org roots)
+
+3.  How would these services perform better than they would do today?
+
+    In addition to the features listed above, for the most part, specialized services in Azure will give you more compute power and features for the same cost as a Virtual Machine providing better cost efficiencies.
+
+4.  What additional services or features introduced by integrating with the Azure platform could they utilize to better manage the environment?
+
+    * Azure Monitor
+        * Centralized fast log queries
+        * Built-in visualizations
+        * Integration with Azure services
+        * Built-in alerting and ITSM integration
+
+5.  What type of advantages could be found by utilizing these Azure services:
+    * Application Gateway with Web Application Firewall (WAF)
+    * App Service Plan (Web App or Containers)
+    * Firewall
+    * Front Door
+    * Monitor
+    * Public DNS
+
+
 ## Checklist of preferred objection handling
 
 1.  Owners of each business application need to approve any substantial application change, including migration. Business owners have indicated that they will require evidence that migration will be successful before granting approval.
@@ -633,6 +719,7 @@ Directions: Tables reconvene with the larger group to hear the facilitator/SME s
     It is a common myth that all workloads should move to the cloud, and that the cloud will automatically be cheaper. Careful planning will be required to optimize your Azure deployment, and a cost analysis performed to make sure the business case for migration is sound and fully understood.
 
     The [Build a business justification for cloud migration](https://docs.microsoft.com/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) guide is a useful resource for dispelling cloud adoption myths and building a realistic business case.
+
 
 ## Customer quote (to be read back to the attendees at the end)
 
