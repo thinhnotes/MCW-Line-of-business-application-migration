@@ -69,6 +69,7 @@
             "name": "[parameters('virtualNetworkName')]",
             "location": "[parameters('location')]",
             "dependsOn": [],
+            //"resourceGroup": "[parameters('resourceGroup')]",
             "tags": {},
             "properties": {
                 "addressSpace": {
@@ -104,7 +105,7 @@
                 ],
                 "enableDdosProtection": "[parameters('ddosProtectionPlanEnabled')]"
             }
-        },
+        }, 
         {
             "condition": "[parameters('bastionEnabled')]",
             "type": "Microsoft.Network/publicIpAddresses",
@@ -125,8 +126,8 @@
             "name": "[parameters('bastionName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[resourceId(parameters('resourceGroup'), 'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
-                "[resourceId(parameters('resourceGroup'), 'Microsoft.Network/publicIpAddresses', variables('bastionPIPName'))]"
+                "[parameters('virtualNetworkName')]",
+                "[variables('bastionPIPName')]"
             ],
             "properties": {
                 "ipConfigurations": [
@@ -151,7 +152,7 @@
             "name": "[parameters('WAFName')]",
             "location": "[parameters('location')]",
             "dependsOn": [
-                "[concat('Microsoft.Network/publicIPAddresses/', variables('WAFPIPName'))]"
+                "[variables('WAFPIPName')]"
             ],
             "tags": {},
             "zones": [],

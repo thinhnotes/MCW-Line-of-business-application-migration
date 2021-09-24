@@ -1,0 +1,105 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "adminUsername": {
+            "type": "string",
+            "minLength": 1,
+            "defaultValue": "demouser",
+            "metadata": {
+                "description": "Username for the Virtual Machine."
+            }
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "defaultValue": "demo!pass123",
+            "metadata": {
+                "description": "Password for the Virtual Machine."
+            }
+        },
+        "rgBaseName": {
+            "type": "string",
+            "defaultValue": "SmartHotel"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "westus"
+        },
+        "includeLandingZone": {
+            "type": "bool",
+            "defaultValue": true
+        }
+    },
+    "variables": {
+        "baseUri": "https://openhackpublic.blob.core.windows.net/lob-migration/sept-2021",
+        "HostRG": "[concat[parameters('rgBaseName'), 'HostRG'",
+        "hostUri": "[concat(variables('baseUri'),'/SmartHotelHost.json')]",
+        "LZRG": "[concat[parameters('rgBaseName'), 'RG'",
+        "landingZoneBase": "[concat(variables('baseUri'),'/landingZone')]",
+        "landingZoneUri": "[concat(variables('landingZoneBase'),'/SmartHotelLZ.json')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2021-04-01",
+            "name": "[varaibles('HostRG')]",
+            "location": "[parameters('location')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2021-04-01",
+            "name": "[varaibles('LZRG')]",
+            "location": "[parameters('location')]",
+            "properties": {}
+        },
+        {
+            "condition": "[parameters('includeLandingZone')]",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "landingZoneDeployment",
+            "resourceGroup": "[variables('landingZoneRg')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', variables('LZRG'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "parameters": {
+                    "resourceGroup": {
+                        "value": "[variables('landingZoneRg')]"
+                    }
+                },
+                "templateLink": {
+                    "uri": "[variables('landingZoneUri')]",
+                    "contentVersion": "1.0.0.0"
+                }
+            }
+        },
+        {
+            "condition": "[parameters('includeLandingZone')]",
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2017-05-10",
+            "name": "landingZoneDeployment",
+            "resourceGroup": "[variables('landingZoneRg')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', variables('LZRG'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "parameters": {
+                    "adminUsername": {
+                        "value": "[parameters('adminUsername')]"
+                    },
+                    "adminPassword": {
+                        "value": "[parameters('adminPassword')]"
+                    }
+                },
+                "templateLink": {
+                    "uri": "[variables('landingZoneUri')]",
+                    "contentVersion": "1.0.0.0"
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
