@@ -69,7 +69,6 @@
             "name": "[parameters('virtualNetworkName')]",
             "location": "[parameters('location')]",
             "dependsOn": [],
-            //"resourceGroup": "[parameters('resourceGroup')]",
             "tags": {},
             "properties": {
                 "addressSpace": {
