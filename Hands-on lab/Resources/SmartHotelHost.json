@@ -1,5 +1,5 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "adminUsername": {
@@ -37,13 +37,9 @@
         "dmsPrefix": "10.1.0.0/16",
         "dmsSubnetPrefix": "10.1.0.0/24",
         "dmsSubnetName": "DMS",
-        "baseUri": "https://cloudworkshop.blob.core.windows.net/line-of-business-application-migration/sept-2020",
-        "customScriptFolder": "./sept-2020/",
+        "customScriptFolder": "./sept-2021/",
         "customScriptUriScriptFileName": "BootstrapSmartHotelHost.ps1",
-        "customScriptUri": "[concat(variables('baseUri'),'/BootstrapSmartHotelHost.ps1')]",
-        "landingZoneRG": "SmartHotelRG",
-        "landingZoneBase": "https://openhackpublic.blob.core.windows.net/lob-migration/landingZone",
-        "landingZoneUri": "[concat(variables('landingZoneBase'),'/SmartHotelLZ.json')]"
+        "customScriptUri": "https://openhackpublic.blob.core.windows.net/lob-migration/sept-2021/BootstrapSmartHotelHost.ps1"
     },
     "resources": [
         {
@@ -122,13 +118,10 @@
                     "properties": {
                         "publisher": "Microsoft.Compute",
                         "type": "CustomScriptExtension",
-                        "typeHandlerVersion": "1.4",
-                        "autoUpgradeMinorVersion": false,
+                        "typeHandlerVersion": "1.10",
+                        "autoUpgradeMinorVersion": true,
                         "settings": {
-                            "fileUris": [
-                                "[variables('customScriptUri')]"
-                            ],
-                            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('customScriptFolder'), '/', variables('customScriptUriScriptFileName'))]"
+                            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -command \"& { md ', variables('customScriptFolder'), ';  wget -URI ', variables('customScriptUri'), ' -o ', variables('customScriptFolder'), variables('customScriptUriScriptFileName'), '; &\"\"', variables('customScriptFolder'),  variables('customScriptUriScriptFileName'), '\"\" } \"' )]"
                         }
                     }
                 }
@@ -335,31 +328,6 @@
                 "[resourceId('Microsoft.Network/virtualNetworks', variables('smarthotelVnetName'))]",
                 "[resourceId('Microsoft.Network/virtualNetworks', variables('dmsVnetName'))]"
             ]
-        },
-        {
-            "conidition": "[parameters('includeLandingZone')]",
-            "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2018-05-01",
-            "location": "[resourceGroup().location]",
-            "name": "[variables('landingZoneRG')]",
-            "properties": {}
-        },
-        {
-            "condition": "[parameters('includeLandingZone')]",
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2017-05-10",
-            "name": "landingZoneDeployment",
-            "resourceGroup": "[variables('landingZoneRG')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Resources/resourceGroups/', variables('landingZoneRG'))]"
-            ],
-            "properties": {
-                "mode": "Incremental",
-                "templateLink": {
-                    "uri": "[variables('landingZoneUri')]",
-                    "contentVersion": "1.0.0.0"
-                }
-            }
-        }
+       }
     ]
 }
