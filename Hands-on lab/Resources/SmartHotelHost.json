@@ -37,13 +37,9 @@
         "dmsPrefix": "10.1.0.0/16",
         "dmsSubnetPrefix": "10.1.0.0/24",
         "dmsSubnetName": "DMS",
-        "baseUri": "https://openhackpublic.blob.core.windows.net/lob-migration/sept-2021",
         "customScriptFolder": "./sept-2021/",
         "customScriptUriScriptFileName": "BootstrapSmartHotelHost.ps1",
-        "customScriptUri": "[concat(variables('baseUri'),'/BootstrapSmartHotelHost.ps1')]",
-        "landingZoneRG": "SmartHotelRG",
-        "landingZoneBase": "[concat(variables('baseUri'),'/landingZone')]",
-        "landingZoneUri": "[concat(variables('landingZoneBase'),'/SmartHotelLZ.json')]"
+        "customScriptUri": "https://openhackpublic.blob.core.windows.net/lob-migration/sept-2021/BootstrapSmartHotelHost.ps1')]"
     },
     "resources": [
         {
@@ -335,54 +331,6 @@
                 "[resourceId('Microsoft.Network/virtualNetworks', variables('smarthotelVnetName'))]",
                 "[resourceId('Microsoft.Network/virtualNetworks', variables('dmsVnetName'))]"
             ]
-      /*  },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2021-04-01",
-            "name": "[variables('landingZoneRG')]",
-            "subscriptionId": "[subscription().subscriptionId]",
-            "location": "[resourceGroup().location]",
-            "properties": {
-              "mode": "Incremental",
-              "template": {
-                "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-                "contentVersion": "1.0.0.0",
-                "parameters": {},
-                "variables": {},
-                "resources": [
-                  {
-                    "type": "Microsoft.Resources/resourceGroups",
-                    "apiVersion": "2021-04-01",
-                    "name": "[variables('landingZoneRG')]",
-                    "location": "[resourceGroup().location]",
-                    "properties": {}
-                },
-                {
-                    "condition": "[parameters('includeLandingZone')]",
-                    "type": "Microsoft.Resources/deployments",
-                    "apiVersion": "2017-05-10",
-                    "name": "landingZoneDeployment",
-                    "resourceGroup": "[variables('landingZoneRg')]",
-                    "dependsOn": [
-                        "[resourceId('Microsoft.Resources/resourceGroups/', variables('landingZoneRg'))]"
-                    ],
-                    "properties": {
-                        "mode": "Incremental",
-                        "parameters": {
-                            "resourceGroup": {
-                                "value": "[variables('landingZoneRg')]"
-                            }
-                        },
-                        "templateLink": {
-                            "uri": "[variables('landingZoneUri')]",
-                            "contentVersion": "1.0.0.0"
-                        }
-                    }
-                          }
-                ],
-                "outputs": {}
-              }
-            }*/
-        }
+       }
     ]
 }
