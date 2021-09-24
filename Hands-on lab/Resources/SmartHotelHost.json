@@ -39,7 +39,7 @@
         "dmsSubnetName": "DMS",
         "customScriptFolder": "./sept-2021/",
         "customScriptUriScriptFileName": "BootstrapSmartHotelHost.ps1",
-        "customScriptUri": "https://openhackpublic.blob.core.windows.net/lob-migration/sept-2021/BootstrapSmartHotelHost.ps1')]"
+        "customScriptUri": "https://openhackpublic.blob.core.windows.net/lob-migration/sept-2021/BootstrapSmartHotelHost.ps1"
     },
     "resources": [
         {
@@ -118,13 +118,10 @@
                     "properties": {
                         "publisher": "Microsoft.Compute",
                         "type": "CustomScriptExtension",
-                        "typeHandlerVersion": "1.4",
-                        "autoUpgradeMinorVersion": false,
+                        "typeHandlerVersion": "1.10",
+                        "autoUpgradeMinorVersion": true,
                         "settings": {
-                            "fileUris": [
-                                "[variables('customScriptUri')]"
-                            ],
-                            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('customScriptFolder'), '/', variables('customScriptUriScriptFileName'))]"
+                            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -command \"& { md ', variables('customScriptFolder'), ';  wget -URI ', variables('customScriptUri'), ' -o ', variables('customScriptFolder'), variables('customScriptUriScriptFileName'), '; &\"\"', variables('customScriptFolder'),  variables('customScriptUriScriptFileName'), '\"\" } \"' )]"
                         }
                     }
                 }
