@@ -281,9 +281,6 @@
             "apiVersion": "2019-06-01-preview",
             "name": "[variables('SQLServerName')]",
             "location": "[parameters('location')]",
-            "dependsOn": [
-                "[parameters('SQLRGName')]"
-            ],
             "tags": {},
             "properties": {
                 "administratorLogin": "demouser",

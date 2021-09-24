@@ -37,12 +37,12 @@
         "dmsPrefix": "10.1.0.0/16",
         "dmsSubnetPrefix": "10.1.0.0/24",
         "dmsSubnetName": "DMS",
-        "baseUri": "https://cloudworkshop.blob.core.windows.net/line-of-business-application-migration/sept-2020",
-        "customScriptFolder": "./sept-2020/",
+        "baseUri": "https://openhackpublic.blob.core.windows.net/lob-migration/sept-2021",
+        "customScriptFolder": "./sept-2021/",
         "customScriptUriScriptFileName": "BootstrapSmartHotelHost.ps1",
         "customScriptUri": "[concat(variables('baseUri'),'/BootstrapSmartHotelHost.ps1')]",
         "landingZoneRG": "SmartHotelRG",
-        "landingZoneBase": "https://openhackpublic.blob.core.windows.net/lob-migration/landingZone",
+        "landingZoneBase": "[concat(variables('baseUri'),'/landingZone')]",
         "landingZoneUri": "[concat(variables('landingZoneBase'),'/SmartHotelLZ.json')]"
     },
     "resources": [
