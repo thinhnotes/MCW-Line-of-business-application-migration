@@ -17,40 +17,42 @@
                 "description": "Password for the Virtual Machine."
             }
         },
-        "rgBaseName": {
+        "resourceGroupBaseName": {
             "type": "string",
-            "defaultValue": "SmartHotel"
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "westus"
+            "defaultValue": "SmartHotel",
+            "metadata": {
+                "description": "Prefix to use for Resource Group names (i.e. 'SmartHotel' would generate 'SmartHotelRG' resource group)"
+            }
         },
         "includeLandingZone": {
             "type": "bool",
-            "defaultValue": true
+            "defaultValue": true,
+            "metadata": {
+                "description": "Whether or not to pre-provision the Landing Zone resources along with deployment"
+            }
         }
     },
     "variables": {
         "baseUri": "https://openhackpublic.blob.core.windows.net/lob-migration/sept-2021",
-        "HostRG": "[concat[parameters('rgBaseName'), 'HostRG'",
+        "HostRG": "[concat(parameters('resourceGroupBaseName'), 'HostRG')]",
         "hostUri": "[concat(variables('baseUri'),'/SmartHotelHost.json')]",
-        "LZRG": "[concat[parameters('rgBaseName'), 'RG'",
-        "landingZoneBase": "[concat(variables('baseUri'),'/landingZone')]",
-        "landingZoneUri": "[concat(variables('landingZoneBase'),'/SmartHotelLZ.json')]"
+        "LZRG": "[concat(parameters('resourceGroupBaseName'), 'RG')]",
+        "landingZoneUri": "[concat(variables('baseUri'),'/SmartHotelLZ.json')]"
     },
     "resources": [
         {
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2021-04-01",
-            "name": "[varaibles('HostRG')]",
-            "location": "[parameters('location')]",
+            "name": "[variables('HostRG')]",
+            "location": "[deployment().location]",
             "properties": {}
         },
         {
+            "condition": "[parameters('includeLandingZone')]",
             "type": "Microsoft.Resources/resourceGroups",
             "apiVersion": "2021-04-01",
-            "name": "[varaibles('LZRG')]",
-            "location": "[parameters('location')]",
+            "name": "[variables('LZRG')]",
+            "location": "[deployment().location]",
             "properties": {}
         },
         {
@@ -58,7 +60,7 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
             "name": "landingZoneDeployment",
-            "resourceGroup": "[variables('landingZoneRg')]",
+            "resourceGroup": "[variables('LZRG')]",
             "dependsOn": [
                 "[resourceId('Microsoft.Resources/resourceGroups/', variables('LZRG'))]"
             ],
@@ -66,7 +68,7 @@
                 "mode": "Incremental",
                 "parameters": {
                     "resourceGroup": {
-                        "value": "[variables('landingZoneRg')]"
+                        "value": "[variables('LZRG')]"
                     }
                 },
                 "templateLink": {
@@ -76,13 +78,12 @@
             }
         },
         {
-            "condition": "[parameters('includeLandingZone')]",
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
-            "name": "landingZoneDeployment",
-            "resourceGroup": "[variables('landingZoneRg')]",
+            "name": "hostDeployment",
+            "resourceGroup": "[variables('HostRG')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Resources/resourceGroups/', variables('LZRG'))]"
+                "[resourceId('Microsoft.Resources/resourceGroups/', variables('HostRG'))]"
             ],
             "properties": {
                 "mode": "Incremental",
@@ -95,7 +96,7 @@
                     }
                 },
                 "templateLink": {
-                    "uri": "[variables('landingZoneUri')]",
+                    "uri": "[variables('hostUri')]",
                     "contentVersion": "1.0.0.0"
                 }
             }
