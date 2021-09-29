@@ -121,7 +121,7 @@
                         "typeHandlerVersion": "1.10",
                         "autoUpgradeMinorVersion": true,
                         "settings": {
-                            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -command \"& { md ', variables('customScriptFolder'), ';  wget -URI ', variables('customScriptUri'), ' -o ', variables('customScriptFolder'), variables('customScriptUriScriptFileName'), '; &\"\"', variables('customScriptFolder'),  variables('customScriptUriScriptFileName'), '\"\" } \"' )]"
+                            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -command \"& { md ', variables('customScriptFolder'), ';  wget -URI ', variables('customScriptUri'), ' -o ', variables('customScriptFolder'), variables('customScriptUriScriptFileName'), '; & \\\"', variables('customScriptFolder'),  variables('customScriptUriScriptFileName'), '\\\" } \"' )]"
                         }
                     }
                 }
