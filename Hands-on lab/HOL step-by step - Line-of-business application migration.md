@@ -1300,29 +1300,33 @@ In this task, you updated the **smarthotelweb2** configuration to connect to the
 
 In this task, you will associate an Application Gateway with Web Application Firewall (WAF) to replace the Ubuntu VM with the Azure managed service.
 
-1. Navigate to the **AppGW** Application Gateway
+1. Navigate to the **SmartHotel-WAF** Application Gateway in the **SmartHotelRG** resource group
 
-In this task, you will associate a public IP address with the UbuntuWAF VM. This will allow you to verify that the SmartHotel application is running successfully in Azure.
+2. Select **Backend pools** under the Settings section, and select the **WebBackend** pool
 
-1. Navigate to the **UbuntuWAF** VM blade, select **Networking** under **Settings** on the left, then select the network interface (in bold text). 
+    ![Screenshot showing the backend pool selection for the Application Gateway](images/Exercise3/waf-backend-pool.png "Select WebBackend")
 
-    ![Screenshot showing the path to the NIC of the UbuntuWAF VM.](images/Exercise3/waf-nic.png "Network interface link")
+3. Set the Target type to **Virtual machine** and the Target to the NIC of **smarthotelweb1**, select **Save** to update the backend pool
 
-2. Select **IP configuration** under **Settings** on the left, then select the IP configuration listed.
+    ![Screenshot showing virtual machine add to the backend pool of Application Gateway](images/Exercise3/waf-add-vm-to-pool.png "Add VM to backend pool")
 
-    ![Screenshot showing the path to the ipConfig of the UbuntuWAF VM's NIC.](images/Exercise3/waf-ipconfig.png "IP configuration link")
+    > **Note:** this backend pool is already associated with the front end IP address of the Application Gateway via the SmartHotelApp rule. The front end IP, listener, rule, and backend pool were all created with the Application Gateway. This step now ties the migrated VM to the front end.
 
-3. Set the **Public IP address** to **Associate**, and create a new public IP address named **UbuntuWAF-IP**. Choose a **Basic** tier IP address with **Dynamic** assignment. **Save** your changes.
+4. Navigate to the **Frontend IP configurations** of the Application Gateway in the Settings section, and note the IP address associated with the public IP address **appGwPublicFrontendIp**.
 
-    ![Screenshot showing the public IP configured on the UbuntuWAF VM.](images/Exercise3/waf-ip.png "Public IP configuration")
-
-4. Return to the **UbuntuWAF** VM overview blade and copy the **Public IP address** value.
-
-    ![Screenshot showing the IP address for the UbuntuWAF VM.](images/Exercise3/ubuntu-public-ip.png "UbuntuWAF public IP address")
+    ![Screenshot showing public IP address of the Application Gateway that is now associated with the backend VM.](images/Exercise3/waf-public-ip-address.png "Public IP address of AppGW")
 
 5. Open a new browser tab and paste the IP address into the address bar. Verify that the SmartHotel360 application is now available in Azure.
 
     ![Screenshot showing the SmartHotel application.](images/Exercise3/smarthotel.png "Migrated SmartHotel application")
+
+    > **Note:** at this point the base Application Gateway service is providing access to the backend application. This validates that the application is working and can be further protected by the WAF in following steps.  **IF the browser does not show the application, troubleshoot your connecting before proceeding to the next stesp**
+
+6. Select **Web application firewall** under the Settings section and change the Tier to **WAF V2**.  Also, change the Firewall status to **Enabled**, the Firewall mode to **Prevention**, and set the Max request body size (KB) to **32**.  Select **Save** to commit the changes.
+
+    ![Screenshot changing Application Gateway to WAF V2 tier and enabling the WAF in prevention mode](images/Exercise3/waf-enable-waf-v2.png "Enable WAF v2")
+
+7. Once the application gateway changes have been saved, go back to your web browser with the public IP address of the application gateway you used earlier and refresh the browser to have a page processed by the WAF.
 
 #### Task summary <!-- omit in toc -->
 
