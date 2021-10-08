@@ -765,7 +765,7 @@ In subsequent tasks, you will use this project to migrate both the database sche
 
 We'll start by creating the private endpoint that allows the DMS to access the database server.
 
-1. In the Azure portal, navigate to the **SmartHotelHostRG** resource group, and then to the database server.
+1. In the Azure portal, navigate to the **SmartHotelRG** resource group, and then to the database server.
 
 2. Select **Private endpoint connections** under **Security**, then **+ Private endpoint**.
 
@@ -923,7 +923,7 @@ In this task you will use the Azure Database Migration Service to migrate the da
 
 The schema migration will be carried out using an offline data migration activity within the migration project created in task 5.
 
-1. Return to the Azure portal blade for your **DBMigrate** migration project in DMS. Select **+ New Activity** and select **Offline data migration** from the drop-down.
+1. Return to the Azure portal blade for your **DBMigrate** migration project in DMS. Select **+ New Activity** and select **Data migration** from the drop-down.
 
     ![Screenshot showing the 'New Activity' button within an Azure Database Migration Service project, with 'Offline data migration' selected from the drop-down.](images/Exercise2/new-activity-data.png "New Activity - Offline data migration")
 
