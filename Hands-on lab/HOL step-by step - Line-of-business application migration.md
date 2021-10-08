@@ -55,10 +55,9 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 4: Enable Replication from Hyper-V to Azure Migrate](#task-4-enable-replication-from-hyper-v-to-azure-migrate)
     - [Task 5: Configure static internal IP addresses for each VM](#task-5-configure-static-internal-ip-addresses-for-each-vm)
     - [Task 6: Server migration](#task-6-server-migration)
-    - [Task 7: Enable Azure Bastion](#task-7-enable-azure-bastion)
-    - [Task 8: Configure the database connection](#task-8-configure-the-database-connection)
-    - [Task 9: Configure the public IP address and test the SmartHotel application](#task-9-configure-the-public-ip-address-and-test-the-smarthotel-application)
-    - [Task 10: Post-migration steps](#task-10-post-migration-steps)
+    - [Task 7: Configure the database connection](#task-7-configure-the-database-connection)
+    - [Task 8: Configure the public IP address and test the SmartHotel application](#task-8-configure-the-public-ip-address-and-test-the-smarthotel-application)
+    - [Task 9: Post-migration steps](#task-9-post-migration-steps)
   - [After the hands-on lab](#after-the-hands-on-lab)
     - [Task 1: Clean up resources](#task-1-clean-up-resources)
 
@@ -1306,7 +1305,7 @@ In this task, you will associate an Application Gateway with Web Application Fir
 
     ![Screenshot showing the backend pool selection for the Application Gateway](images/Exercise3/waf-backend-pool.png "Select WebBackend")
 
-3. Set the Target type to **Virtual machine** and the Target to the NIC of **smarthotelweb1**, select **Save** to update the backend pool
+3. Set the Target type to **Virtual machine** and the Target to the NIC of **smarthotelweb1**; select **Save** to update the backend pool
 
     ![Screenshot showing virtual machine add to the backend pool of Application Gateway](images/Exercise3/waf-add-vm-to-pool.png "Add VM to backend pool")
 
@@ -1320,7 +1319,9 @@ In this task, you will associate an Application Gateway with Web Application Fir
 
     ![Screenshot showing the SmartHotel application.](images/Exercise3/smarthotel.png "Migrated SmartHotel application")
 
-    > **Note:** at this point the base Application Gateway service is providing access to the backend application. This validates that the application is working and can be further protected by the WAF in following steps.  **IF the browser does not show the application, troubleshoot your connecting before proceeding to the next stesp**
+    > **Note:** at this point the base Application Gateway service is providing access to the backend application. This validates that the application is working and can be further protected by the WAF in following steps.
+    > 
+    > ***If the browser does not show the application, troubleshoot your connecting before proceeding to the next steps.** A Bastion service is deployed with the landing zone template to assist in accessing VMs on the SmartHotelVNet if needed for troubleshooting.*
 
 6. Select **Web application firewall** under the Settings section and change the Tier to **WAF V2**.  Also, change the Firewall status to **Enabled**, the Firewall mode to **Prevention**, and set the Max request body size (KB) to **32**.  Select **Save** to commit the changes.
 
@@ -1330,7 +1331,7 @@ In this task, you will associate an Application Gateway with Web Application Fir
 
 #### Task summary <!-- omit in toc -->
 
-In this task, you assigned a public IP address to the UbuntuWAF VM and verified that the SmartHotel application is now working in Azure.
+In this task, you associated the web app running on the VM to the application gateway, enabled the Web Application Firewall v2 (WAF v2), and verified that the SmartHotel application is now working in Azure.
 
 ### Task 9: Post-migration steps
 
