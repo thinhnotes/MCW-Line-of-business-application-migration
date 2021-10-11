@@ -1309,7 +1309,7 @@ In this task, you will associate an Application Gateway with Web Application Fir
 
     ![Screenshot showing virtual machine add to the backend pool of Application Gateway](images/Exercise3/waf-add-vm-to-pool.png "Add VM to backend pool")
 
-    > **Note:** this backend pool is already associated with the front end IP address of the Application Gateway via the SmartHotelApp rule. The front end IP, listener, rule, and backend pool were all created with the Application Gateway. This step now ties the migrated VM to the front end.
+    > **Note:** This backend pool is already associated with the front end IP address of the Application Gateway via the SmartHotelApp rule. The front end IP, listener, rule, and backend pool were all created with the Application Gateway. This step now ties the migrated VM to the front end.
 
 4. Navigate to the **Frontend IP configurations** of the Application Gateway in the Settings section, and note the IP address associated with the public IP address **appGwPublicFrontendIp**.
 
@@ -1319,7 +1319,7 @@ In this task, you will associate an Application Gateway with Web Application Fir
 
     ![Screenshot showing the SmartHotel application.](images/Exercise3/smarthotel.png "Migrated SmartHotel application")
 
-    > **Note:** at this point the base Application Gateway service is providing access to the backend application. This validates that the application is working and can be further protected by the WAF in following steps.
+    > **Note:** At this point the base Application Gateway service is providing access to the backend application. This validates that the application is working and can be further protected by the WAF in following steps.
     > 
     > ***If the browser does not show the application, troubleshoot your connecting before proceeding to the next steps.** A Bastion service is deployed with the landing zone template to assist in accessing VMs on the SmartHotelVNet if needed for troubleshooting.*
 
