@@ -148,7 +148,11 @@ Function Rearm-VM {
     Write-Output "Getting IP for $ComputerName"
 
     $vm = Get-VM -Name $ComputerName
-    $ip = $vm.NetworkAdapters[0].IPAddresses[0]
+    do {
+        if ($web1.state -eq "Off")  { $web1 | Start-VM }
+        sleep -Seconds 5
+        $ip = $web1.NetworkAdapters[0].IpAddresses[0]
+    } until ($ip)
 
     Write-Output "Creating credentials object"
     $localusername = "$computerName\$Username"
