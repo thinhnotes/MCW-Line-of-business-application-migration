@@ -149,9 +149,9 @@ Function Rearm-VM {
 
     $vm = Get-VM -Name $ComputerName
     do {
-        if ($web1.state -eq "Off")  { $web1 | Start-VM }
+        if ($vm.state -eq "Off")  { $vm | Start-VM }
         sleep -Seconds 5
-        $ip = $web1.NetworkAdapters[0].IpAddresses[0]
+        $ip = $vm.NetworkAdapters[0].IpAddresses[0]
     } until ($ip)
 
     Write-Output "Creating credentials object"
