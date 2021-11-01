@@ -42,15 +42,14 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 6: Explore dependency visualization](#task-6-explore-dependency-visualization)
   - [Exercise 2: Migrate the Application Database](#exercise-2-migrate-the-application-database)
     - [Task 1: Register the Microsoft.DataMigration resource provider](#task-1-register-the-microsoftdatamigration-resource-provider)
-    - [Task 2: Create an Azure SQL Database](#task-2-create-an-azure-sql-database)
-    - [Task 3: Create the Database Migration Service](#task-3-create-the-database-migration-service)
-    - [Task 4: Assess the on-premises database using Data Migration Assistant](#task-4-assess-the-on-premises-database-using-data-migration-assistant)
-    - [Task 5: Create a DMS migration project](#task-5-create-a-dms-migration-project)
-    - [Task 6: Migrate the database schema](#task-6-migrate-the-database-schema)
-    - [Task 7: Migrate the on-premises data](#task-7-migrate-the-on-premises-data)
+    - [Task 2: Create the Database Migration Service](#task-2-create-the-database-migration-service)
+    - [Task 3: Assess the on-premises database using Data Migration Assistant](#task-3-assess-the-on-premises-database-using-data-migration-assistant)
+    - [Task 4: Create a DMS migration project](#task-4-create-a-dms-migration-project)
+    - [Task 5: Migrate the database schema](#task-5-migrate-the-database-schema)
+    - [Task 6: Migrate the on-premises data](#task-6-migrate-the-on-premises-data)
   - [Exercise 3: Migrate the application and web tiers using Azure Migrate: Server Migration](#exercise-3-migrate-the-application-and-web-tiers-using-azure-migrate-server-migration)
     - [Task 1: Create a Storage Account](#task-1-create-a-storage-account)
-    - [Task 2: Create a Virtual Network](#task-2-create-a-virtual-network)
+    - [Task 2: Create a Private Endpoint](#task-2-create-a-private-endpoint)
     - [Task 3: Register the Hyper-V Host with Azure Migrate: Server Migration](#task-3-register-the-hyper-v-host-with-azure-migrate-server-migration)
     - [Task 4: Enable Replication from Hyper-V to Azure Migrate](#task-4-enable-replication-from-hyper-v-to-azure-migrate)
     - [Task 5: Configure static internal IP addresses for each VM](#task-5-configure-static-internal-ip-addresses-for-each-vm)
@@ -660,7 +659,7 @@ In this task you will create an Azure Database Migration Service resource. This 
 
 In this task you created a new Azure Database Migration Service resource.
 
-### Task 4: Assess the on-premises database using Data Migration Assistant
+### Task 3: Assess the on-premises database using Data Migration Assistant
 
 In this task you will install and use Microsoft Data Migration Assistant (DMA) to assess the on-premises database. DMA is integrated with Azure Migrate providing a single hub for assessment and migration tools.
 
@@ -756,7 +755,7 @@ In this task you will install and use Microsoft Data Migration Assistant (DMA) t
 
 In this task you used Data Migration Assistant to assess an on-premises database for readiness to migrate to Azure SQL, and uploaded the assessment results to your Azure Migrate project. The DMA is integrated with Azure Migrate providing a single hub for assessment and migration tools.
 
-### Task 5: Create a DMS migration project
+### Task 4: Create a DMS migration project
 
 In this task you will create a Migration Project within the Azure Database Migration Service (DMS). This project contains the connection details for both the source and target databases. In order to connect to the target database, you will also create a private endpoint allowing connectivity from the subnet used by the DMS.
 
@@ -882,7 +881,7 @@ We'll start by creating the private endpoint that allows the DMS to access the d
 
 In this task you created a Migration Project within the Azure Database Migration Service. This project contains the connection details for both the source and target databases. A private endpoint was used to avoid exposing the database on a public IP address.
 
-### Task 6: Migrate the database schema
+### Task 5: Migrate the database schema
 
 In this task you will use the Azure Database Migration Service to migrate the database schema to Azure SQL Database. This step is a prerequisite to migrating the data itself.
 
@@ -916,7 +915,7 @@ The schema migration will be carried out using a schema migration activity withi
 
 In this task you used a schema migration activity in the Azure Database Migration Service to migrate the database schema from the on-premises SQL Server database to the Azure SQL database.
 
-### Task 7: Migrate the on-premises data
+### Task 6: Migrate the on-premises data
 
 In this task you will use the Azure Database Migration Service to migrate the database data to Azure SQL Database.
 
