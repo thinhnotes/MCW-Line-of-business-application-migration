@@ -996,14 +996,18 @@ In this task you will create a new Azure Storage Account that will be used by Az
     - Storage account name: **migrationstorage\[unique number\]**
   
     - Location: **IMPORTANT: Select the same location as your Azure SQL Database** (can be found in the Azure portal).
-  
-    - Account kind: **Storage (general purpose v1)** (do not use a v2 account).
+    
+    - Performance: **Standard**
   
     - Replication: **Locally-redundant storage (LRS)**
 
-    ![Screenshot of the Azure portal showing the create storage account blade.](images/Exercise3/create-storage-2.png "Storage account settings")
+    ![Screenshot of the Azure portal showing the create storage account blade.](images/Exercise3/create-storage-2.png "Storage account basic settings")
 
-3. Select **Review + create**, then select **Create**.
+3. Select the **Data protection** tab, and uncheck the **Enable soft delete blobs**:
+
+    ![Screenshot of the Azure portal showing the removal of blobs' soft delete](images/Exercise3/create-storage-3.png "Storage account data protection settings")
+
+4. Select **Review + create**, then select **Create**.
 
 #### Task summary <!-- omit in toc -->
 
