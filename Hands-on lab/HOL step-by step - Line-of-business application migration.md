@@ -1293,9 +1293,19 @@ On the migrated VM **smarthotelweb2**, this configuration needs to be updated to
 
 4. **Save** the `web.config` file and exit your Bastion remote desktop session.
 
+    > **Note**: You also need to associate the virtual network hosting the Azure VMs **smarthotelweb1** and **smarthotelweb2** with the Azure Private DNS zone hosting the DNS record associated with the logical server of the target Azure SQL Database.
+
+5. In the Azure portal, navigate to the blade of the **privatelink.database.windows.net** Private DNS zone in the **SmartHotelRG** resource group.
+
+6. On the **privatelink.database.windows.net** blade, select **Virtual network links**.
+
+7. Select **Virtual network links** under the **Settings** section and then select **+ Add**.
+
+8. On the **Add virtual network link** blade, in the **Link name** text box, enter **SmartHotelVNet**, in the **Virtual network** drop-down list, select **SmartHotelVNet**, and then select **OK**. 
+
 #### Task summary
 
-In this task, you updated the **smarthotelweb2** configuration to connect to the Azure SQL Database.
+In this task, you updated the **smarthotelweb2** and **privatelink.database.windows.net** configuration to connect to the Azure SQL Database.
 
 ### Task 8: Configure the public IP address and test the SmartHotel application
 
