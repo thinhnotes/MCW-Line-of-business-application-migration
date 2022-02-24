@@ -19,7 +19,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2021 Microsoft Corporation. All rights reserved.
+© 2022 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -134,7 +134,7 @@ In this task, you will create the Azure Migrate project and select the assessmen
 
     ![Screenshot of the Azure Migrate overview blade.](images/Exercise1/SP-Ex1t1s4.png "Azure Migrate Overview blade")
 
-3. Select **"Discover**, followed by **Assess and migrate**, and then select **Create project**.  Select your subscription and create a new resource group named **AzureMigrateRG**. Enter **SmartHotelMigration** as the Migrate project name, and choose a geography close to you to store the migration assessment data. Then select **Create**.
+3. Select **Discover**, followed by **Assess and migrate**, and then select **Create project**.  Select your subscription and create a new resource group named **AzureMigrateRG**. Enter **SmartHotelMigration** as the Migrate project name, and choose a geography close to you to store the migration assessment data. Then select **Create**.
 
     >**Note**: If you are running this lab in a shared subscription you will need to use a migrate project name that is unique in the subscription. Append characters to the end of migrate project name to make your project name unique. For example: **SmartHotelMigration1234**.
 
@@ -181,7 +181,7 @@ In this task, you will deploy and configure the Azure Migrate appliance in the o
 
 You will now deploy the Azure Migrate appliance virtual machine.  Normally, you would first need to download the .ZIP file containing the appliance to your Hyper-V host, and unzip it. To save time, these steps have been completed for you.
 
-8. In Hyper-V Manager, under **Action**, select **Import Virtual Machine...** to open the **Import Virtual Machine** wizard.
+8. In Hyper-V Manager, under **Actions**, select **Import Virtual Machine...** to open the **Import Virtual Machine** wizard.
 
     ![Screenshot of Hyper-V Manager, with the 'Import Virtual Machine' action highlighted.](images/Exercise1/import-vm-1.png "Import Virtual Machine")
 
@@ -466,7 +466,7 @@ In this task, you will configure the Azure Migrate dependency visualization feat
 
     ![Screenshot of the Azure Migrate 'Configure OMS workspace' blade.](images/Exercise1/configure-oms.png "OMS Workspace settings")
 
-4. Wait for the workspace to be deployed. Once it is deployed, navigate to it and select **Agents management** under **Settings** on the left. Make a note of the **Workspace ID** and **Primary Key** (for example by using Notepad).
+4. Wait for the workspace to be deployed. Once it is deployed, navigate to it, and select **Agents management** under **Settings** on the left. Make a note of the **Workspace ID** and **Primary Key** (for example by using Notepad).
 
     ![Screenshot of part of the Azure Migrate 'Dependencies' blade, showing the OMS workspace ID and key.](images/Exercise1/workspace-id-key.png "OMS Workspace ID and primary key")
 
@@ -826,7 +826,7 @@ We'll start by creating the private endpoint that allows the DMS to access the d
 
     ![Screenshot showing the Database Migration Service blade in the Azure portal, with the 'New Migration Project' button highlighted.](images/Exercise2/new-dms-project.png "New DMS migration project")
  
-10. the **New migration project** blade, enter **DBMigrate** as the project name. Leave the source server type as **SQL Server** and target server type as **Azure SQL Database**. Select **Choose type of activity** and select **Create project only** and then select **Create**.
+10. On the **New migration project** blade, enter **DBMigrate** as the project name. Leave the source server type as **SQL Server** and target server type as **Azure SQL Database**. Select **Choose type of activity** and select **Create project only** and then select **Create**.
 
     ![Screenshot showing the Database Migration Service blade in the Azure portal, with the 'New Migration Project' button highlighted.](images/Exercise2/new-migrate-project.png "DMS migration project - settings")
 
@@ -1321,7 +1321,7 @@ In this task, you will associate an Application Gateway with Web Application Fir
 
     ![Screenshot showing virtual machine add to the backend pool of Application Gateway](images/Exercise3/waf-add-vm-to-pool.png "Add VM to backend pool")
 
-    > **Note:** This backend pool is already associated with the front end IP address of the Application Gateway via the SmartHotelApp rule. The front end IP, listener, rule, and backend pool were all created with the Application Gateway. This step now ties the migrated VM to the front end.
+    > **Note:** This backend pool is already associated with the front-end IP address of the Application Gateway via the SmartHotelApp rule. The front-end IP, listener, rule, and backend pool were all created with the Application Gateway. This step now ties the migrated VM to the front end.
 
 4. Navigate to the **Frontend IP configurations** of the Application Gateway in the Settings section, and note the IP address associated with the public IP address **appGwPublicFrontendIp**.
 
@@ -1347,7 +1347,7 @@ In this task, you associated the web app running on the VM to the application ga
 
 ### Task 9: Post-migration steps
 
-There are a number of post-migration steps that should be completed before the migrated services is ready for production use. These include:
+There are a number of post-migration steps that should be completed before the migrated services are ready for production use. These include:
 
 - Installing the Azure VM Agent
 
