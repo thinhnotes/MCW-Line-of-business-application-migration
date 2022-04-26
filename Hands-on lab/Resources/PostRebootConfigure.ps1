@@ -211,7 +211,7 @@ cmd /c "$azcopy cp --check-md5 FailIfDifferentOrMissing $sourceFolder/SmartHotel
 cmd /c "$azcopy cp --check-md5 FailIfDifferentOrMissing $sourceFolder/SmartHotelWeb2.zip $tempDir\SmartHotelWeb2.zip" | Add-Content $cmdLogPath
 cmd /c "$azcopy cp --check-md5 FailIfDifferentOrMissing $sourceFolder/SmartHotelSQL1.zip $tempDir\SmartHotelSQL1.zip" | Add-Content $cmdLogPath
 cmd /c "$azcopy cp --check-md5 FailIfDifferentOrMissing $sourceFolder/UbuntuWAF.zip $tempDir\UbuntuWAF.zip" | Add-Content $cmdLogPath
-cmd /c "$azcopy cp --check-md5 FailIfDifferentOrMissing $sourceFolder/AzureMigrateAppliance_v3.20.08.27.zip $tempDir\AzureMigrate.zip" | Add-Content $cmdLogPath
+cmd /c "$azcopy cp --check-md5 FailIfDifferentOrMissing $sourceFolder/AzureMigrateAppliance_v25.22.04.11.zip $tempDir\AzureMigrate.zip" | Add-Content $cmdLogPath
 
 # Unzip the VMs
 Write-Output "Unzip nested VMs"
