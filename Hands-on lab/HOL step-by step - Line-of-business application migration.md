@@ -268,7 +268,7 @@ In this task, you will configure the Azure Migrate appliance and use it to compl
 
     ![The Verification of Azure Migrate project key step displays with the Verify button highlighted.](images/Exercise1/reg1.png "Verification of Azure Migrate project key")
 
-10. Once verification completes. Select **Login** beneath the **Azure user login and appliance registration status** header.
+10. Once verification completes select **Login** beneath the **Azure user login and appliance registration status** header.
 
     ![The Login button located beneath the Azure user login and appliance registration header is highlighted.](images/Exercise1/login_post_verification.png "Log In")
 
@@ -280,7 +280,7 @@ In this task, you will configure the Azure Migrate appliance and use it to compl
 
     ![Screenshot of the Azure Migrate appliance login window, showing where to copy and paste the login code for the Azure Migrate project.](images/Exercise1/reg1b.png "Azure Migrate Microsoft login")
 
-13. **Wait** a few moments for the registration process to complete. A message will display indicating the appliance is successfully registered.
+13. **Wait** a few moments for the registration process to complete. A message will be displayed indicating the appliance is successfully registered.
 
     ![A message displays indicating the appliance has been successfully registered.](images/Exercise1/reg2.png "Appliance registered")
 
@@ -376,7 +376,7 @@ In this task, you will configure the Azure Migrate appliance and use it to compl
 > 
 > Once the CSV is populated, you can then import the systems into the Migrate assessment phase by doing the following:
 >
->1.	Go to the Azure Migrate, under Migration goals, select the appropriate resource type (i.e., Windows, Linux and SQL Server).
+>1.	Go to Azure Migrate, under Migration goals, select the appropriate resource type (i.e., Windows, Linux and SQL Server).
 >
 >2.	Select the **Discover** link.
 >
@@ -433,7 +433,7 @@ In this task, you will use Azure Migrate to create a migration assessment for th
 
     ![Screenshot showing the Azure Migrate assessment report on the VM readiness page, with the VM readiness for each VM highlighted.](images/Exercise1/readiness-v2.png "Assessment - VM readiness for Azure")
 
-10. Select **Unknown OS** for **UbuntuWAF**. A new browser tab opens showing Azure Migrate documentation. Note on the page that the issue relates the OS not being specified in the host hypervisor, so you must confirm the OS type and version is supported.
+10. Select **Unknown OS** for **UbuntuWAF**. A new browser tab opens showing Azure Migrate documentation. Note on the page that the issue relates to the OS not being specified in the host hypervisor, so you must confirm the OS type and version is supported.
 
     ![Screenshot of Azure documentation showing troubleshooting advice for the 'Unknown OS' issue. It states that the OS was listed as 'Other' in the host hypervisor.](images/Exercise1/unknown-os-doc.png "Assessment issues - Unknown OS")
 
@@ -813,7 +813,7 @@ We'll start by creating the private endpoint that allows the DMS to access the d
   
     ![Screenshot showing the 'Create a private endpoint' blade, 'Basics' tab.](images/Exercise2/private-endpoint-1.png "Private Endpoint - Basics")
 
-4. On the **Resource** tab, entering the following configuration then select **Next: Virtual Network**.
+4. On the **Resource** tab, enter the following configuration then select **Next: Virtual Network**.
 
     - Connection method: **Connect to an Azure resource in my directory**.
   
@@ -1368,9 +1368,9 @@ In this task, you will associate an Application Gateway with Web Application Fir
 
     ![Screenshot showing the SmartHotel application.](images/Exercise3/smarthotel.png "Migrated SmartHotel application")
 
-    > **Note:** At this point the base Application Gateway service is providing access to the backend application. This validates that the application is working and can be further protected by the WAF in following steps.
+    > **Note:** At this point the base Application Gateway service is providing access to the backend application. This validates that the application is working and can be further protected by the WAF in the following steps.
     > 
-    > ***If the browser does not show the application, troubleshoot your connecting before proceeding to the next steps.** A Bastion service is deployed with the landing zone template to assist in accessing VMs on the SmartHotelVNet if needed for troubleshooting.*
+    > ***If the browser does not show the application, troubleshoot your connection before proceeding to the next steps.** A Bastion service is deployed with the landing zone template to assist in accessing VMs on the SmartHotelVNet if needed for troubleshooting.*
 
 6. Select **Web application firewall** under the Settings section and change the Tier to **WAF V2**.  Also, change the Firewall status to **Enabled**, the Firewall mode to **Prevention**, and set the Max request body size (KB) to **32**.  Select **Save** to commit the changes.
 
@@ -1422,7 +1422,7 @@ In this task you will install the Azure Virtual Machine Agent (VM Agent) on your
 
 4. Close the smarthotelweb1 window. Repeat the Azure VM agent installation process on **smarthotelweb2**.
 
-You will now install the Linux version of the Azure VM Agent on the Ubuntu VM. All Linux distributions supports by Azure have integrated the Azure VM Agent into their software repositories, making installation easy in most cases.
+You will now install the Linux version of the Azure VM Agent on the Ubuntu VM. All Linux distributions supported by Azure have integrated the Azure VM Agent into their software repositories, making installation easy in most cases.
 
 5. In the Azure portal, locate the **UbuntuWAF** VM and **Connect** to the VM using Azure Bastion, with the user name **demouser** and password **demo!pass123**. Since this is a Linux VM, Bastion will create an SSH session. You may need to enter the credentials again. 
  
