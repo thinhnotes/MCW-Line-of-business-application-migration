@@ -12,7 +12,6 @@ Hands-on lab step-by-step
 February 2022
 </div>
 
-
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
 Microsoft may have patents, patent applications, trademarks, copyrights, or other intellectual property rights covering subject matter in this document. Except as expressly provided in any written license agreement from Microsoft, the furnishing of this document does not give you any license to these patents, trademarks, copyrights, or other intellectual property.
@@ -21,7 +20,7 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 © 2022 Microsoft Corporation. All rights reserved.
 
-Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
+Microsoft and the trademarks listed at <https://www.microsoft.com/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
 **Contents** 
 
@@ -35,28 +34,52 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Before the hands-on lab](#before-the-hands-on-lab)
   - [Exercise 1: Discover and assess the on-premises environment](#exercise-1-discover-and-assess-the-on-premises-environment)
     - [Task 1: Create the Azure Migrate project and add assessment and migration tools](#task-1-create-the-azure-migrate-project-and-add-assessment-and-migration-tools)
+      - [Task summary](#task-summary)
     - [Task 2: Deploy the Azure Migrate appliance](#task-2-deploy-the-azure-migrate-appliance)
+      - [Task summary](#task-summary-1)
     - [Task 3: Configure the Azure Migrate appliance](#task-3-configure-the-azure-migrate-appliance)
+      - [Task summary](#task-summary-2)
     - [Task 4: Create a migration assessment](#task-4-create-a-migration-assessment)
+      - [Task summary](#task-summary-3)
     - [Task 5: Configure dependency visualization](#task-5-configure-dependency-visualization)
+      - [Task summary](#task-summary-4)
     - [Task 6: Explore dependency visualization](#task-6-explore-dependency-visualization)
+      - [Task summary](#task-summary-5)
+      - [Exercise summary](#exercise-summary)
   - [Exercise 2: Migrate the Application Database](#exercise-2-migrate-the-application-database)
     - [Task 1: Register the Microsoft.DataMigration resource provider](#task-1-register-the-microsoftdatamigration-resource-provider)
+      - [Task summary](#task-summary-6)
     - [Task 2: Create the Database Migration Service](#task-2-create-the-database-migration-service)
+      - [Task summary](#task-summary-7)
     - [Task 3: Assess the on-premises database using Data Migration Assistant](#task-3-assess-the-on-premises-database-using-data-migration-assistant)
+      - [Task summary](#task-summary-8)
     - [Task 4: Create a DMS migration project](#task-4-create-a-dms-migration-project)
+      - [Task summary](#task-summary-9)
     - [Task 5: Migrate the database schema](#task-5-migrate-the-database-schema)
+      - [Task summary](#task-summary-10)
     - [Task 6: Migrate the on-premises data](#task-6-migrate-the-on-premises-data)
+      - [Task summary](#task-summary-11)
+      - [Exercise summary](#exercise-summary-1)
   - [Exercise 3: Migrate the application and web tiers using Azure Migrate: Server Migration](#exercise-3-migrate-the-application-and-web-tiers-using-azure-migrate-server-migration)
     - [Task 1: Create a Storage Account](#task-1-create-a-storage-account)
+      - [Task summary](#task-summary-12)
     - [Task 2: Create a Private Endpoint](#task-2-create-a-private-endpoint)
+      - [Task summary](#task-summary-13)
     - [Task 3: Register the Hyper-V Host with Azure Migrate: Server Migration](#task-3-register-the-hyper-v-host-with-azure-migrate-server-migration)
+      - [Task summary](#task-summary-14)
     - [Task 4: Enable Replication from Hyper-V to Azure Migrate](#task-4-enable-replication-from-hyper-v-to-azure-migrate)
+      - [Task summary](#task-summary-15)
     - [Task 5: Configure static internal IP addresses for each VM](#task-5-configure-static-internal-ip-addresses-for-each-vm)
+      - [Task summary](#task-summary-16)
     - [Task 6: Server migration](#task-6-server-migration)
+      - [Task summary](#task-summary-17)
     - [Task 7: Configure the database connection](#task-7-configure-the-database-connection)
+      - [Task summary](#task-summary-18)
     - [Task 8: Configure the public IP address and test the SmartHotel application](#task-8-configure-the-public-ip-address-and-test-the-smarthotel-application)
+      - [Task summary](#task-summary-19)
     - [Task 9: Post-migration steps](#task-9-post-migration-steps)
+      - [Task summary](#task-summary-20)
+    - [Exercise summary](#exercise-summary-2)
   - [After the hands-on lab](#after-the-hands-on-lab)
     - [Task 1: Clean up resources](#task-1-clean-up-resources)
 
@@ -313,11 +336,12 @@ In this task, you will configure the Azure Migrate appliance and use it to compl
     ![A table of discovery sources displays highlighting the successful validation of the configured discovery source.](images/Exercise1/add-disc3.png "Discovery source validation successful")
 
     > **Note:** When adding discovery sources:
-    > -  For successfully validated hosts/clusters, you can view more details by selecting their IP address/FQDN.
-    > -  If validation fails for a host, review the error by selecting the Validation failed in the Status column of the table. Fix the issue and validate again.
-    > -  To remove hosts or clusters, select **Delete**.
-    > -  You can't remove a specific host from a cluster. You can only remove the entire cluster.
-    > -  You can add a cluster, even if there are issues with specific hosts in the cluster.
+    >
+    > - For successfully validated hosts/clusters, you can view more details by selecting their IP address/FQDN.
+    > - If validation fails for a host, review the error by selecting the Validation failed in the Status column of the table. Fix the issue and validate again.
+    > - To remove hosts or clusters, select **Delete**.
+    > - You can't remove a specific host from a cluster. You can only remove the entire cluster.
+    > - You can add a cluster, even if there are issues with specific hosts in the cluster.
 
 19. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis.**, disable the slider to the off position.
 
@@ -336,59 +360,47 @@ In this task, you will configure the Azure Migrate appliance and use it to compl
     **Wait for the discovery process to complete before proceeding to the next Task**.
 
 >**Note**: If the discovery process takes an inordinate amount of time or the source resources are not allowing the appliance to discover the resources in an appropriate time to complete this exercise, you can manually import the systems via CSV:
-> 
+>
 >_Discover Import_
 >
 >If the system is not able to assess the environment or identify details, you can import an inventory of the environment, their configuration, and utilization with a CSV file.  You can download an example [CSV file here](https://go.microsoft.com/fwlink/?linkid=2109031). The properties in the CSV are:
-> 
-> -	Server Name – name of the computer
-> 
-> -	IP Addresses – semi-colon separated list of IPv4 and IPv6 addresses used by the machine
-> 
-> -	Cores – number of vCPU used 
-> 
-> -	Memory – amount of memory in MB
-> 
-> -	OS Details
-> 
+>
+> - Server Name – name of the computer
+> - IP Addresses – semi-colon separated list of IPv4 and IPv6 addresses used by the machine
+> - Cores – number of vCPU used
+> - Memory – amount of memory in MB
+> - OS Details
 >   - Name – type of operating system
 >   - Version – version of the OS in use
->   -	Architecture – architecture (like x64/x86)
-> 
-> -	CPU Utilization – percentage of the CPU in use
-> 
-> -	Memory Utilization – percentage spike of the CPU usage
-> 
-> -	Network
->   -	Adapter count – number of NIC’s attached to the machine
->   -	Input Throughput – amount of throughput in Mbps into system
->   -	Output Throughput – amount of throughput in Mbps out of the system
-> 
-> -	Boot Type – type of boot used by systems (UEFI/BIOS)
-> 
-> -	Disks
->   -	Number of disks – number of disks attached to disk
->   -	Per disk size – size of disk in GB
->   -	Per disk reads (Bytes) – amount of MB per second read from each disk
->   -	Per disk writes (Bytes) – amount of MB per second written to each disk
->   -	Per disk reads (IOPS) – count of output operations from disk per second
->   -	Per disk writes (IOPS) – count of input operations from disk per second
-> 
+>   - Architecture – architecture (like x64/x86)
+> - CPU Utilization – percentage of the CPU in use
+> - Memory Utilization – percentage spike of the CPU usage
+> - Network
+>   - Adapter count – number of NIC’s attached to the machine
+>   - Input Throughput – amount of throughput in Mbps into system
+>   - Output Throughput – amount of throughput in Mbps out of the system
+> - Boot Type – type of boot used by systems (UEFI/BIOS)
+> - Disks
+>   - Number of disks – number of disks attached to disk
+>   - Per disk size – size of disk in GB
+>   - Per disk reads (Bytes) – amount of MB per second read from each disk
+>   - Per disk writes (Bytes) – amount of MB per second written to each disk
+>   - Per disk reads (IOPS) – count of output operations from disk per second
+>   - Per disk writes (IOPS) – count of input operations from disk per second
+>
 > Once the CSV is populated, you can then import the systems into the Migrate assessment phase by doing the following:
 >
->1.	Go to Azure Migrate, under Migration goals, select the appropriate resource type (i.e., Windows, Linux and SQL Server).
+> 1. Go to Azure Migrate, under Migration goals, select the appropriate resource type (i.e., Windows, Linux and SQL Server).
+> 2. Select the **Discover** link.
 >
->2.	Select the **Discover** link.
+>    ![Screenshot showing the discover link within Azure Migrate.](images/Exercise1/discoverlink.png "Azure Migrate Discover link")
 >
->   ![Screenshot showing the discover link within Azure Migrate.](images/Exercise1/discoverlink.png "Azure Migrate Discover link")
+> 3. Choose **Import using CSV** at the top.
 >
->3. Choose **Import using CSV** at the top.
+>    ![Screenshot showing the import using CSV selection in Azure Migrate.](images/Exercise1/importusingcsv.png "Import using CSV")
 >
->![Screenshot showing the import using CSV selection in Azure Migrate.](images/Exercise1/importusingcsv.png "Import using CSV")
->
->4. Upload the CSV file of your resources using the on-screen instructions by selecting **Import** to read the file.
+> 4. Upload the CSV file of your resources using the on-screen instructions by selecting **Import** to read the file.
 
- 
 #### Task summary
 
 In this task you configured the Azure Migrate appliance in the on-premises Hyper-V environment and started the migration assessment discovery process.
@@ -445,23 +457,20 @@ In this task, you will use Azure Migrate to create a migration assessment for th
 
 >**Note**: The process of gathering information of operating system environments (OSE) and migrating data of VMs between environments takes some time due to the nature of transferring data.  However, there are a few steps that can be done to speed up and view how the system works.  These are a few options:
 >
-> Common steps to refresh data: (also see [Troubleshoot Discovery](https://docs.microsoft.com/en-us/azure/migrate/troubleshoot-discovery#common-software-inventory-errors))
-> 
-> -	[Server data not updating in portal](https://docs.microsoft.com/en-us/azure/migrate/troubleshoot-discovery#server-data-not-updating-in-portal) – if the servers’ data is not refreshing, this is a method to accelerate it.
-> 
-> -	[Do not see software inventory details](https://docs.microsoft.com/en-us/azure/migrate/troubleshoot-discovery#do-not-see-software-inventory-details-even-after-updating-guest-credentials) – by default the software inventory is only refreshed once every 24 hours. This forces a refresh.
-> 
-> -	[Software inventory errors](https://docs.microsoft.com/en-us/azure/migrate/troubleshoot-discovery#common-software-inventory-errors) – during inventory there are sometimes error codes returned. This lists all the error codes and meanings.
+> Common steps to refresh data: (also see [Troubleshoot Discovery](https://docs.microsoft.com/azure/migrate/troubleshoot-discovery#common-software-inventory-errors))
 >
->_Refresh Data_
-> 
+> - [Server data not updating in portal](https://docs.microsoft.com/azure/migrate/troubleshoot-discovery#server-data-not-updating-in-portal) – if the servers’ data is not refreshing, this is a method to accelerate it.
+> - [Do not see software inventory details](https://docs.microsoft.com/azure/migrate/troubleshoot-discovery#do-not-see-software-inventory-details-even-after-updating-guest-credentials) – by default the software inventory is only refreshed once every 24 hours. This forces a refresh.
+> - [Software inventory errors](https://docs.microsoft.com/azure/migrate/troubleshoot-discovery#common-software-inventory-errors) – during inventory there are sometimes error codes returned. This lists all the error codes and meanings.
+>
+> _Refresh Data_
+>
 > Many issues in the Migrate can be related to the appliance not refreshing the data due to regular schedules or data not being transferred.  Forcing the data and information to be updated can be achieved with the following steps:
-> 1.	In Windows, Linux and SQL Servers > Azure Migrate: Discovery and assessment, select Overview.
-> 2.	Under Manage, select Appliances.
-> 3.	Select Refresh services.
-> 4.	Wait for the refresh operation to complete. You should now see up-to-date information.
 >
-
+> 1. In Windows, Linux and SQL Servers > Azure Migrate: Discovery and assessment, select Overview.
+> 2. Under Manage, select Appliances.
+> 3. Select Refresh services.
+> 4. Wait for the refresh operation to complete. You should now see up-to-date information.
 
 #### Task summary
 
@@ -489,7 +498,7 @@ In this task, you will configure the Azure Migrate dependency visualization feat
 
     ![Screenshot of part of the Azure Migrate 'Dependencies' blade, showing the OMS workspace ID and key.](images/Exercise1/workspace-id-key.png "OMS Workspace ID and primary key")
 
-5. Return to the Azure Migrate 'Dependencies' blade. Copy each of the 4 agent download URLs and paste them alongside the Workspace ID and key you noted in the previous step. 
+5. Return to the Azure Migrate 'Dependencies' blade. Copy each of the 4 agent download URLs and paste them alongside the Workspace ID and key you noted in the previous step.
 
     ![Screenshot of the Azure Migrate 'Dependencies' blade with the 4 agent download links highlighted.](images/Exercise1/agent-links.png "Agent download links")
 
@@ -501,7 +510,7 @@ In this task, you will configure the Azure Migrate dependency visualization feat
 
 8. Open **Internet Explorer**, and paste the link to the 64-bit Microsoft Monitoring Agent for Windows, which you noted earlier. When prompted, **Run** the installer.
 
-    > **Note:** You may need to disable **Internet Explorer Enhanced Security Configuration** on **Server Manager** under **Local Server** to complete the download. 
+    > **Note:** You may need to disable **Internet Explorer Enhanced Security Configuration** on **Server Manager** under **Local Server** to complete the download.
 
     ![Screenshot showing the Internet Explorer prompt to run the installer for the Microsoft Monitoring Agent.](images/Exercise1/mma-win-run.png "Run MMA installer")
 
@@ -521,7 +530,7 @@ In this task, you will configure the Azure Migrate dependency visualization feat
 
 12. Return to the RDP session with the **SmartHotelHost** and open a command prompt using the desktop shortcut.  
 
-    > **Note**: The SmartHotelHost runs Windows Server 2019 with the Windows Subsystem for Linux enabled. This allows the command prompt to be used as an SSH client. More info of supported Linux on Azure can be found here: https://Azure.com/Linux. 
+    > **Note**: The SmartHotelHost runs Windows Server 2019 with the Windows Subsystem for Linux enabled. This allows the command prompt to be used as an SSH client. More info of supported Linux on Azure can be found here: <https://Azure.com/Linux>.
 
 13. Enter the following command to connect to the **UbuntuWAF** VM running in Hyper-V on the SmartHotelHost:
 
@@ -541,7 +550,7 @@ In this task, you will configure the Azure Migrate dependency visualization feat
 
     This gives the terminal session elevated privileges.
 
-16. Enter the following command, substituting \<Workspace ID\> and \<Workspace Key\> with the values copied previously. Answer **<Yes>** when prompted to restart services during package upgrades without asking. 
+16. Enter the following command, substituting \<Workspace ID\> and \<Workspace Key\> with the values copied previously. Answer **<Yes>** when prompted to restart services during package upgrades without asking.
 
     ```s
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <Workspace ID> -s <Workspace Key>
@@ -607,7 +616,7 @@ In this exercise you will migrate the application database from the on-premises 
 
 Prior to using the Azure Database Migration Service, the resource provider **Microsoft.DataMigration** must be registered in the target subscription.
 
-1. Open the Azure Cloud Shell by navigating to **https://shell.azure.com**. Log in using your Azure subscription credentials if prompted to do so, select a **PowerShell** session, and accept any prompts.
+1. Open the Azure Cloud Shell by navigating to **<https://shell.azure.com>**. Log in using your Azure subscription credentials if prompted to do so, select a **PowerShell** session, and accept any prompts.
 
 2. Run the following command to register the **Microsoft.DataMigration** resource provider:
 
@@ -713,7 +722,7 @@ In this task you will install and use Microsoft Data Migration Assistant (DMA) t
 
     ![The Assess databases blade displays with the Download button highlighted.](images/Exercise2/assessdatabasesdownloaddmabutton.png "Download DMA")
 
-8. Return to your remote desktop session with the **SmartHotelHost** VM. Open **Chrome** from the desktop. Access the .NET Framework 4.8 installation page <https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48>, then download and install the runtime. The machine will require a reboot after installation. Reconnect to the **SmartHotelHost** VM after it has rebooted.
+8. Return to your remote desktop session with the **SmartHotelHost** VM. Open **Chrome** from the desktop. Access the .NET Framework 4.8 installation page <https://dotnet.microsoft.com/download/dotnet-framework/net48>, then download and install the runtime. The machine will require a reboot after installation. Reconnect to the **SmartHotelHost** VM after it has rebooted.
 
     ![A portion of the .NET Framework 4.8 download page displays with the Download .NET Framework 4.8 Runtime button highlighted.](images/Exercise2/downloadnet40runtime.png "Download .NET Framework 4.8 Runtime")
 
@@ -799,9 +808,11 @@ In subsequent tasks, you will use this project to migrate both the database sche
 
 We'll start by creating the private endpoint that allows the DMS to access the database server.
 
-1. In the Azure portal, navigate to the **SmartHotelRG** resource group, and then select the SQL server from the list of resources.
+1. In the [Azure portal](https://portal.azure.com/), navigate to the **SmartHotelRG** resource group, and then select the SQL server from the list of resources.
 
-2. Select **Private endpoint connections** under **Security**, then **+ Private endpoint**.
+2. Select **Networking** under **Security** in the left-hand navigation menu, select the **Private access** tab on the Networking blade, and then select **Create a private endpoint** under _Private endpoint connections_.
+
+    ![Create a private endpoint for the SQL Server.](images/Exercise2/sql-server-create-private-endpoint.png "Create a private endpoint")
 
 3. On the **Basics** tab that appears, enter the following configuration then select **Next: Resource**.
 
@@ -851,7 +862,7 @@ We'll start by creating the private endpoint that allows the DMS to access the d
 
     >**Note**: Private DNS is used so that the database domain name, **\<your server\>.database.windows.net** resolves to the internal private endpoint IP address **10.1.0.5** when resolved from the DMSvnet, but resolves to the Internet-facing IP address of the database server when resolved from outside the DMSvnet. This means the same connection string (which contains the domain name) can be used in both cases.
 
-7.  Return to the Database server blade. Under **Security**, select **Firewalls and virtual networks**. Set 'Deny public network access' to **Yes**, then **Save** your changes.
+7. Return to the Database server blade. Under **Security**, select **Firewalls and virtual networks**. Set 'Deny public network access' to **Yes**, then **Save** your changes.
 
     ![Screenshot showing the link to add an existing virtual network to the SQL database network security settings.](images/Exercise2/db-network.png "Database Server - Firewalls and virtual networks")
 
@@ -862,7 +873,7 @@ We'll start by creating the private endpoint that allows the DMS to access the d
 9. Navigate to the Database Migration Service resource blade in the **AzureMigrateRG** resource group and select **+ New Migration Project**.
 
     ![Screenshot showing the Database Migration Service blade in the Azure portal, with the 'New Migration Project' button highlighted.](images/Exercise2/new-dms-project.png "New DMS migration project")
- 
+
 10. On the **New migration project** blade, enter **DBMigrate** as the project name. Leave the source server type as **SQL Server** and target server type as **Azure SQL Database**. Select **Choose type of activity** and select **Create project only** and then select **Create**.
 
     ![Screenshot showing the Database Migration Service blade in the Azure portal, with the 'New Migration Project' button highlighted.](images/Exercise2/new-migrate-project.png "DMS migration project - settings")
@@ -989,11 +1000,11 @@ The schema migration will be carried out using an offline data migration activit
 
     ![Screenshot from DMS showing the data migration in completed.](images/Exercise2/data-migration-completed.png "Data migration completed")
 
-As a final step, we will remove the private endpoint that allows the DMS service access to the database, since this access is no longer required.
+    As a final step, we will remove the private endpoint that allows the DMS service access to the database, since this access is no longer required.
 
-9.  In the Azure portal, navigate to the **SmartHotelRG** resource group, and then to the database server. Under **Security**, select **Private endpoint connections**.
+9. In the Azure portal, navigate to the **SmartHotelRG** resource group, and then to the database server. Under **Security**, select **Private endpoint connections**.
 
-10.  Select the **SmartHotel-DB-for-DMS** endpoint added earlier, and select **Remove**, followed by **Yes**.
+10. Select the **SmartHotel-DB-for-DMS** endpoint added earlier, and select **Remove**, followed by **Yes**.
 
     ![Screenshot from the SQL server showing the SmartHotel-DB-for-DMS private endpoint being removed.](images/Exercise2/private-endpoint-remove.png "Remove private endpoint")
 
@@ -1026,18 +1037,13 @@ In this task you will create a new Azure Storage Account that will be used by Az
 2. In the **Create storage account** blade, on the **Basics** tab, use the following values:
 
     - Subscription: **Select your Azure subscription**.
-  
     - Resource group: **AzureMigrateRG**
-  
     - Storage account name: **migrationstorage\[unique number\]**
-  
     - Location: **IMPORTANT: Select the same location as your Azure SQL Database** (can be found in the Azure portal).
-    
     - Performance: **Standard**
-  
     - Replication: **Locally-redundant storage (LRS)**
 
-    ![Screenshot of the Azure portal showing the create storage account blade.](images/Exercise3/create-storage-2.png "Storage account basic settings")
+      ![Screenshot of the Azure portal showing the create storage account blade.](images/Exercise3/create-storage-2.png "Storage account basic settings")
 
 3. Select the **Data protection** tab, and uncheck the **Enable soft delete blobs**:
 
@@ -1053,13 +1059,17 @@ In this task you created a new Azure Storage Account that will be used by Azure 
 
 In this task you will create an endpoint on the provided virtual network that will be used by the SQL Server resource.
 
-> **Note:** Azure provides several options for deploying the right network configuration. After the lab, if you’d like to better understand your networking options, see the [network decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/software-defined-network/), which builds on the Cloud Adoption Framework’s Azure landing zones. 
+> **Note:** Azure provides several options for deploying the right network configuration. After the lab, if you’d like to better understand your networking options, see the [network decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/software-defined-network/), which builds on the Cloud Adoption Framework’s Azure landing zones.
 
 You will also configure a private endpoint in this network to allow private, secure access to the SQL Database.
 
-1. Navigate to the **SmartHotelRG** resource group, and then to the database server. Under **Security**, select **Private endpoint connections**, then select **+ Private endpoint**.
+1. 1. In the [Azure portal](https://portal.azure.com/), navigate to the **SmartHotelRG** resource group, and then select the SQL server from the list of resources.
 
-2. On the **Basics** tab, enter the following configuration then select **Next: Resource**:
+2. Select **Networking** under **Security** in the left-hand navigation menu, select the **Private access** tab on the Networking blade, and then select **Create a private endpoint** under _Private endpoint connections_.
+
+    ![Create a private endpoint for the SQL Server.](images/Exercise2/sql-server-create-private-endpoint.png "Create a private endpoint")
+
+3. On the **Basics** tab, enter the following configuration then select **Next: Resource**:
 
     - Resource group: **SmartHotelRG**
   
@@ -1069,7 +1079,7 @@ You will also configure a private endpoint in this network to allow private, sec
   
     ![Screenshot showing the 'Create a private endpoint' blade, 'Basics' tab.](images/Exercise3/private-endpoint-1-1.png "Create a Private Endpoint - Basics")
 
-3.  On the **Resource** tab, enter the following configuration then select **Next: Virtual Network**:
+4. On the **Resource** tab, enter the following configuration then select **Next: Virtual Network**:
 
     - Connection method: **Connect to an Azure resource in my directory**.
   
@@ -1082,8 +1092,8 @@ You will also configure a private endpoint in this network to allow private, sec
     - Target sub-resource: **sqlServer**
 
     ![Screenshot showing the 'Create a private endpoint' blade, 'Resource' tab.](images/Exercise3/private-endpoint-2.png "Create a Private Endpoint - Resource")
-   
-4.  On the **Virtual Network** tab, enter the following configuration then select, **Next:Tags**, followed by **Review + Create**, and then **Create**:
+
+5. On the **Virtual Network** tab, enter the following configuration then select, **Next:Tags**, followed by **Review + Create**, and then **Create**:
 
     - Virtual network: **SmartHotelVNet**
   
@@ -1095,18 +1105,17 @@ You will also configure a private endpoint in this network to allow private, sec
 
     ![Screenshot showing the 'Create a private endpoint' blade, 'Configuration' tab.](images/Exercise3/private-endpoint-3.png "Create a Private Endpoint - Configuration")
 
-5. **Wait** for the deployment to complete. Open the Private Endpoint blade, and note that the FQDN for the endpoint is listed as **\<your database\>.database.windows.net**, with an internal IP address **192.168.0.132**.
+6. **Wait** for the deployment to complete. Open the Private Endpoint blade, and note that the FQDN for the endpoint is listed as **\<your database\>.database.windows.net**, with an internal IP address **192.168.0.132**.
 
     ![Screenshot showing step 1 to find the DNS entry for the SQL database server private endpoint](images/Exercise2/private-endpoint-dns1.png "Private Endpoint DNS")
 
     ![Screenshot showing step 2 to find the DNS entry for the SQL database server private endpoint](images/Exercise2/private-endpoint-dns2.png "Private Endpoint DNS integration")
 
     ![Screenshot showing step 3 to find the DNS entry for the SQL database server private endpoint](images/Exercise2/private-endpoint-dns3.png "Find Private Endpoint IP address")
-    
+
     >**Note**: Private DNS is used so that the database domain name, **\<your server\>.database.windows.net** resolves to the internal private endpoint IP address **192.168.0.132** when resolved from the SmartHotelVNet, but resolves to the Internet-facing IP address of the database server when resolved from outside the VNet. This means the same connection string (which contains the domain name) can be used in both cases.
 
     >**Note**: If the private endpoint connection fails to allow the IP address or database domain name to connect to the database, it may be required to create a new firewall rule to allow the IP address ranges of the database and the private link.
-
 
 #### Task summary
 
@@ -1118,7 +1127,7 @@ In this task, you will register your Hyper-V host with the Azure Migrate: Server
 
 1. Return to the **Azure Migrate** blade in the Azure Portal, and select **Servers, databases and web apps** under **Migration goals** on the left. Under **Migration Tools**, select **Discover**.
 
-    **Note:** You may need to add the migration tool yourself by following the link below the **Migration Tools** section, selecting **Azure Migrate: Server Migration**, then selecting **Add tool(s)**. 
+    **Note:** You may need to add the migration tool yourself by following the link below the **Migration Tools** section, selecting **Azure Migrate: Server Migration**, then selecting **Add tool(s)**.
 
     ![Screenshot of the Azure portal showing the 'Discover' button on the Azure Migrate Server Migration panel.](images/Exercise3/discover-1.png "Azure Migrate: Server Migration - Discover")
 
@@ -1148,7 +1157,7 @@ In this task, you will register your Hyper-V host with the Azure Migrate: Server
 
     ![Screenshot of the ASR provider registration settings.](images/Exercise3/asr-registration.png "Key file registration")
 
-9.  Select **Connect directly to Azure Site Recovery without a proxy server** and select **Next**. The registration of the Hyper-V host with Azure Site Recovery will begin.
+9. Select **Connect directly to Azure Site Recovery without a proxy server** and select **Next**. The registration of the Hyper-V host with Azure Site Recovery will begin.
 
 10. Wait for registration to complete (this may take several minutes). Then select **Finish**.
 
@@ -1168,7 +1177,7 @@ In this task, you will register your Hyper-V host with the Azure Migrate: Server
 
     ![Screenshot of the 'Discover machines' panel from Azure Migrate, showing the 'Registration finalized' message.](images/Exercise3/discover-7.png "Registration finalized")
 
-16. The **Azure Migrate: Server Migration** panel should now show 5 discovered servers.
+15. The **Azure Migrate: Server Migration** panel should now show 5 discovered servers.
 
     ![Screenshot of the 'Azure Migrate - Servers' blade showing 6 discovered servers under 'Azure Migrate: Server Migration'.](images/Exercise3/discover-8.png "Discovered servers")
 
@@ -1202,7 +1211,7 @@ In this task, you will configure and enable the replication of your on-premises 
 
     > **Note:** For simplicity, in this lab you will not configure the migrated VMs for high availability, since each application tier is implemented using a single VM.
 
-6. In the **Compute** tab, select the **Standard_F2s_v2** VM size for each virtual machine. Select the **Windows** operating system for the **smarthotelweb** virtual machines and the **Linux** operating system for the **UbuntuWAF** virtual machine. Select **Next**. 
+6. In the **Compute** tab, select the **Standard_F2s_v2** VM size for each virtual machine. Select the **Windows** operating system for the **smarthotelweb** virtual machines and the **Linux** operating system for the **UbuntuWAF** virtual machine. Select **Next**.
 
     > **Note**: If you are using an Azure Pass subscription, your subscription may not have a quota allocated for FSv2 virtual machines. In this case, use **DS2_v2 or D2s_v3** virtual machines instead.
 
@@ -1251,9 +1260,8 @@ In this task you will modify the settings for each replicated VM to use a static
 6. Select **OK** to close the network interface settings blade, then **Save** the **smarthotelweb1** settings.
 
 7. Repeat these steps to configure the private IP address for the other VMs.
- 
-    - For **smarthotelweb2** use private IP address **192.168.0.5**
-  
+
+    - For **smarthotelweb2** use private IP address **192.168.0.5**  
     - For **UbuntuWAF** use private IP address **192.168.0.8**
 
 #### Task summary
@@ -1308,7 +1316,7 @@ On the migrated VM **smarthotelweb2**, this configuration needs to be updated to
 
 1. Navigate to the **smarthotelweb2** VM overview blade, and select **Connect**. Select **Bastion** and connect to the machine with the username **Administrator** and the password **demo!pass123** (note that the popup blocker of your web browser must be disabled in order to connect). When prompted, **Allow** clipboard access.
 
-    **Note:** You may have to wait a few minutes and refresh to have the option to enter the credentials. 
+    **Note:** You may have to wait a few minutes and refresh to have the option to enter the credentials.
 
     ![Screenshot showing the Azure Bastion connection blade.](images/Exercise3/web2-connect.png "Connect using Bastion")
 
@@ -1338,7 +1346,7 @@ On the migrated VM **smarthotelweb2**, this configuration needs to be updated to
 
 7. Select **Virtual network links** under the **Settings** section and then select **+ Add**.
 
-8. On the **Add virtual network link** blade, in the **Link name** text box, enter **SmartHotelVNet**, in the **Virtual network** drop-down list, select **SmartHotelVNet**, and then select **OK**. 
+8. On the **Add virtual network link** blade, in the **Link name** text box, enter **SmartHotelVNet**, in the **Virtual network** drop-down list, select **SmartHotelVNet**, and then select **OK**.
 
 #### Task summary
 
@@ -1369,8 +1377,8 @@ In this task, you will associate an Application Gateway with Web Application Fir
     ![Screenshot showing the SmartHotel application.](images/Exercise3/smarthotel.png "Migrated SmartHotel application")
 
     > **Note:** At this point the base Application Gateway service is providing access to the backend application. This validates that the application is working and can be further protected by the WAF in the following steps.
-    > 
-    > ***If the browser does not show the application, troubleshoot your connection before proceeding to the next steps.** A Bastion service is deployed with the landing zone template to assist in accessing VMs on the SmartHotelVNet if needed for troubleshooting.*
+    >
+    > **If the browser does not show the application, troubleshoot your connection before proceeding to the next steps.** A Bastion service is deployed with the landing zone template to assist in accessing VMs on the SmartHotelVNet if needed for troubleshooting.
 
 6. Select **Web application firewall** under the Settings section and change the Tier to **WAF V2**.  Also, change the Firewall status to **Enabled**, the Firewall mode to **Prevention**, and set the Max request body size (KB) to **32**.  Select **Save** to commit the changes.
 
@@ -1387,17 +1395,11 @@ In this task, you associated the web app running on the VM to the application ga
 There are a number of post-migration steps that should be completed before the migrated services are ready for production use. These include:
 
 - Installing the Azure VM Agent
-
 - Cleaning up migration resources
-
 - Enabling backup and disaster recovery
-
 - Encrypting VM disks
-
 - Ensuring the network is properly secured
-
 - Ensuring proper subscription governance is in place, such as role-based access control and Azure Policy
-
 - Reviewing recommendations from Azure Advisor and Security Center
 
 In this task you will install the Azure Virtual Machine Agent (VM Agent) on your migrated Azure VMs and clean up any migration resources. The remaining steps are common for any Azure application, not just migrations, and are therefore out of scope for this hands-on lab.
@@ -1422,17 +1424,17 @@ In this task you will install the Azure Virtual Machine Agent (VM Agent) on your
 
 4. Close the smarthotelweb1 window. Repeat the Azure VM agent installation process on **smarthotelweb2**.
 
-You will now install the Linux version of the Azure VM Agent on the Ubuntu VM. All Linux distributions supported by Azure have integrated the Azure VM Agent into their software repositories, making installation easy in most cases.
+   You will now install the Linux version of the Azure VM Agent on the Ubuntu VM. All Linux distributions supported by Azure have integrated the Azure VM Agent into their software repositories, making installation easy in most cases.
 
-5. In the Azure portal, locate the **UbuntuWAF** VM and **Connect** to the VM using Azure Bastion, with the user name **demouser** and password **demo!pass123**. Since this is a Linux VM, Bastion will create an SSH session. You may need to enter the credentials again. 
- 
+5. In the Azure portal, locate the **UbuntuWAF** VM and **Connect** to the VM using Azure Bastion, with the user name **demouser** and password **demo!pass123**. Since this is a Linux VM, Bastion will create an SSH session. You may need to enter the credentials again.
+
 6. In the SSH session, enter the following command:
 
     ```s
     sudo apt-get install walinuxagent
     ```
 
-    When prompted, enter the password **demo!pass123**. At the *Do you want to continue?* prompt, type **Y** and press **Enter**.
+    When prompted, enter the password **demo!pass123**. At the _Do you want to continue?_ prompt, type **Y** and press **Enter**.
 
     **Note**: You may need to open the clipboard panel on the left-hand edge of the Bastion window, paste the command, and then paste into the VM.
 
@@ -1440,7 +1442,7 @@ You will now install the Linux version of the Azure VM Agent on the Ubuntu VM. A
 
 7. Wait for the installer to finish, then close the terminal window and the Ubuntu VM window.
 
-To demonstrate that the VM Agent is installed, we will now execute the 'Run command' feature from the Azure portal. For more information on the VM Agent, see [Windows VM Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) and [Linux VM Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux).
+   To demonstrate that the VM Agent is installed, we will now execute the 'Run command' feature from the Azure portal. For more information on the VM Agent, see [Windows VM Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) and [Linux VM Agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux).
 
 8. Navigate to the **smarthotelweb1** blade. Under **Operations**, select **Run command**, followed by **IPConfig**, followed by **Run**. After a few seconds, you should see the output of the IPConfig command.
 
@@ -1464,14 +1466,14 @@ Duration: 10 minutes
 
 ### Task 1: Clean up resources
 
-You should complete all of these steps *after* attending the Hands-on lab. Failure to delete the resources created during the lab will result in continued billing.
+You should complete all of these steps _after_ attending the Hands-on lab. Failure to delete the resources created during the lab will result in continued billing.
 
 1. Delete the **SmartHotelHostRG** resource group containing the SmartHotelHost.
 
-2. Delete the **BastionRG** resource group containing the Azure Bastion. 
+2. Delete the **BastionRG** resource group containing the Azure Bastion.
 
 3. Delete the **SmartHotelRG** resource group containing the migrated VMs and related infrastructure resources.
 
 4. Delete the **AzureMigrateRG** resource group containing the Azure Migrate resources (if not done already at the end of Exercise 3).
 
-You should follow all steps provided *after* attending the Hands-on lab.
+You should follow all steps provided _after_ attending the Hands-on lab.
